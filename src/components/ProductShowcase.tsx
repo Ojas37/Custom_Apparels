@@ -81,7 +81,7 @@ export const ProductShowcase: React.FC = () => {
       id: "stickers",
       name: "Custom Stickers",
       category: "Creator Merch",
-      image: "https://images.unsplash.com/photo-1572375995501-4b0894dbe0d7?q=80&w=800&auto=format&fit=crop",
+      image: "/products/stickers.png",
       description: "Die-cut waterproof vinyl sticker packs, matte and gloss finishes.",
       color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
     },
