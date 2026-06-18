@@ -94,6 +94,17 @@ export const CarouselSection: React.FC = () => {
     }, 650);
   };
 
+  // Autoplay Logic (3.5 second intervals)
+  useEffect(() => {
+    if (isAnimating) return;
+
+    const timer = setInterval(() => {
+      navigate("next");
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, [activeIndex, isAnimating]);
+
   const handleWhatsAppEnquiry = () => {
     const currentProduct = IMAGES[activeIndex];
     const message = encodeURIComponent(`Hi! I'm interested in custom ${currentProduct.name} and would like to get a quote and mockup.`);
