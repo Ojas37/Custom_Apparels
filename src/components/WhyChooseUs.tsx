@@ -8,65 +8,65 @@ interface CardItem {
   icon: React.ReactNode;
 }
 
-export const WhyChooseUs: React.FC = () => {
-  const cards: CardItem[] = [
-    {
-      title: "No Minimum Order Qty",
-      desc: "Order from a single custom piece to test print quality, or scale up to thousands of units seamlessly.",
-      icon: <Layers className="w-6 h-6 text-emerald-400" />,
-    },
-    {
-      title: "Free Mockup & Design",
-      desc: "Get expert design assistance and high-fidelity photorealistic mockups within 24 hours.",
-      icon: <Palette className="w-6 h-6 text-emerald-400" />,
-    },
-    {
-      title: "Pan India Delivery",
-      desc: "Reliable door-to-door distribution to offices, event venues, or individual employees' homes across India.",
-      icon: <Truck className="w-6 h-6 text-emerald-400" />,
-    },
-    {
-      title: "Bulk Corporate Orders",
-      desc: "End-to-end custom merchandise execution for onboarding kits, brand events, and promotional campaigns.",
-      icon: <Building2 className="w-6 h-6 text-emerald-400" />,
-    },
-    {
-      title: "Premium Print Quality",
-      desc: "State-of-the-art direct-to-garment (DTG), screen printing, premium DTF, and high-density embroidery.",
-      icon: <CheckCircle className="w-6 h-6 text-emerald-400" />,
-    },
-    {
-      title: "Fast Turnaround Time",
-      desc: "Streamlined production and express logistics pipelines to meet your urgent event and launch deadlines.",
-      icon: <Zap className="w-6 h-6 text-emerald-400" />,
-    },
-  ];
+const cards: CardItem[] = [
+  {
+    title: "No Minimum Order Qty",
+    desc: "Order from a single custom piece to test print quality, or scale up to thousands of units seamlessly.",
+    icon: <Layers className="w-6 h-6 text-emerald-400" />,
+  },
+  {
+    title: "Free Mockup & Design",
+    desc: "Get expert design assistance and high-fidelity photorealistic mockups within 24 hours.",
+    icon: <Palette className="w-6 h-6 text-emerald-400" />,
+  },
+  {
+    title: "Pan India Delivery",
+    desc: "Reliable door-to-door distribution to offices, event venues, or individual employees' homes across India.",
+    icon: <Truck className="w-6 h-6 text-emerald-400" />,
+  },
+  {
+    title: "Bulk Corporate Orders",
+    desc: "End-to-end custom merchandise execution for onboarding kits, brand events, and promotional campaigns.",
+    icon: <Building2 className="w-6 h-6 text-emerald-400" />,
+  },
+  {
+    title: "Premium Print Quality",
+    desc: "State-of-the-art direct-to-garment (DTG), screen printing, premium DTF, and high-density embroidery.",
+    icon: <CheckCircle className="w-6 h-6 text-emerald-400" />,
+  },
+  {
+    title: "Fast Turnaround Time",
+    desc: "Streamlined production and express logistics pipelines to meet your urgent event and launch deadlines.",
+    icon: <Zap className="w-6 h-6 text-emerald-400" />,
+  },
+];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
     },
-  };
+  },
+};
 
-  const itemVariants = {
-    hidden: { y: 40, opacity: 0, scale: 0.95, rotate: -2 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        stiffness: 75,
-        damping: 15,
-      },
+const itemVariants = {
+  hidden: { y: 40, opacity: 0, scale: 0.95, rotate: -2 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      stiffness: 75,
+      damping: 15,
     },
-  } as const;
+  },
+} as const;
 
+export const WhyChooseUs: React.FC = React.memo(() => {
   return (
     <section id="why-choose-us" className="w-full py-20 px-6 md:px-12 bg-zinc-950/40 relative z-20">
       <div className="max-w-7xl mx-auto">
@@ -122,4 +122,4 @@ export const WhyChooseUs: React.FC = () => {
       </div>
     </section>
   );
-};
+});

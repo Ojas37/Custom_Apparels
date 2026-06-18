@@ -5,22 +5,22 @@ interface LogoItem {
   path: string;
 }
 
-export const TrustBar: React.FC = () => {
+const LOGOS: LogoItem[] = [
+  { name: "Prospectoo", path: "/logos/prospectoo.png" },
+  { name: "Raaviera Hotels", path: "/logos/raaviera.png" },
+  { name: "Indian Thali House", path: "/logos/ith.png" },
+  { name: "NMPA", path: "/logos/nmpa.png" },
+  { name: "Kepchaki Momo", path: "/logos/momo.png" },
+  { name: "Dribblers FC", path: "/logos/dribblers.png" },
+  { name: "Royal Wealth", path: "/logos/wealth.png" },
+  { name: "Whoopers", path: "/logos/whoopers.png" },
+];
+
+// Triplicate the logos array to guarantee continuous looping on large viewports
+const MARQUEE_LOGOS = [...LOGOS, ...LOGOS, ...LOGOS];
+
+export const TrustBar: React.FC = React.memo(() => {
   const [clickedLogoIndex, setClickedLogoIndex] = useState<number | null>(null);
-
-  const logos: LogoItem[] = [
-    { name: "Prospectoo", path: "/logos/prospectoo.png" },
-    { name: "Raaviera Hotels", path: "/logos/raaviera.png" },
-    { name: "Indian Thali House", path: "/logos/ith.png" },
-    { name: "NMPA", path: "/logos/nmpa.png" },
-    { name: "Kepchaki Momo", path: "/logos/momo.png" },
-    { name: "Dribblers FC", path: "/logos/dribblers.png" },
-    { name: "Royal Wealth", path: "/logos/wealth.png" },
-    { name: "Whoopers", path: "/logos/whoopers.png" },
-  ];
-
-  // Triplicate the logos array to guarantee continuous looping on large viewports
-  const marqueeLogos = [...logos, ...logos, ...logos];
 
   const handleLogoClick = (idx: number) => {
     if (clickedLogoIndex === idx) {
@@ -55,7 +55,7 @@ export const TrustBar: React.FC = () => {
               animationPlayState: clickedLogoIndex !== null ? "paused" : "running",
             }}
           >
-            {marqueeLogos.map((logo, idx) => {
+            {MARQUEE_LOGOS.map((logo, idx) => {
               const isClicked = clickedLogoIndex === idx;
               const isAnyClicked = clickedLogoIndex !== null;
 
@@ -90,4 +90,7 @@ export const TrustBar: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+TrustBar.displayName = "TrustBar";
+

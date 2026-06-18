@@ -3,6 +3,30 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "./Navbar";
 import { ArrowRight, MessageSquare } from "lucide-react";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 25, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 85,
+      damping: 14,
+    },
+  },
+} as const;
+
 export const Hero: React.FC = () => {
   const { scrollY } = useScroll();
 
@@ -24,30 +48,6 @@ export const Hero: React.FC = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 25, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 85,
-        damping: 14,
-      },
-    },
-  } as const;
 
   return (
     <div

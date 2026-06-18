@@ -1,12 +1,12 @@
 import React from "react";
 import { MessageSquare } from "lucide-react";
 
-export const FloatingWhatsApp: React.FC = () => {
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Hi! I am interested in custom merchandise for my brand. Let's discuss design mockups!");
-    window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
-  };
+const handleWhatsAppClick = () => {
+  const message = encodeURIComponent("Hi! I am interested in custom merchandise for my brand. Let's discuss design mockups!");
+  window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
+};
 
+export const FloatingWhatsApp: React.FC = React.memo(() => {
   return (
     <div className="fixed bottom-6 right-6 z-50 pointer-events-auto">
       {/* Pulse background effect */}
@@ -27,4 +27,7 @@ export const FloatingWhatsApp: React.FC = () => {
       </button>
     </div>
   );
-};
+});
+
+FloatingWhatsApp.displayName = "FloatingWhatsApp";
+

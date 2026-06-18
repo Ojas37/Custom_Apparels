@@ -11,39 +11,45 @@ interface CollabCard {
   features: string[];
 }
 
-export const CollabsSection: React.FC = () => {
-  const collabs: CollabCard[] = [
-    {
-      title: "Shiv Thakare Collection",
-      project: "Celebrity Activewear Line",
-      badge: "Celebrity Merch",
-      description: "Co-designed and manufactured a custom streetwear-activewear line for Bigg Boss fame star Shiv Thakare, prioritizing high-breathability mesh fabrics and premium rubberized typography prints.",
-      image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=800&auto=format&fit=crop",
-      features: ["Custom Rubber Branding", "Heavyweight Mesh Interlock", "Custom Poly-bag Packaging"],
-    },
-    {
-      title: "Netflix 'Mismatched' Cast",
-      project: "Promo Merch & Hoodies",
-      badge: "Creator Merch",
-      description: "Produced limited-edition custom printed hoodies and promotional goodies for the main cast of Netflix India's popular young-adult show 'Mismatched' to support launch campaign events.",
-      image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
-      features: ["380 GSM Organic Cotton", "Satin Lining Prints", "Premium Embroidered Emblems"],
-    },
-    {
-      title: "Corporate Swag & Welcome Kits",
-      project: "Prospectoo & Startup Cohorts",
-      badge: "B2B Projects",
-      description: "Developed and packed fully integrated employee kit boxes containing hoodies, notebook binders, and branded mugs for Prospectoo HQ and high-growth enterprise cohorts.",
-      image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
-      features: ["Curated Box Packing", "Custom Sleeve Sleeving", "Individual Employee Dispatch"],
-    },
-  ];
+const COLLABS: CollabCard[] = [
+  {
+    title: "Shiv Thakare Collection",
+    project: "Celebrity Activewear Line",
+    badge: "Celebrity Merch",
+    description: "Co-designed and manufactured a custom streetwear-activewear line for Bigg Boss fame star Shiv Thakare, prioritizing high-breathability mesh fabrics and premium rubberized typography prints.",
+    image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=800&auto=format&fit=crop",
+    features: ["Custom Rubber Branding", "Heavyweight Mesh Interlock", "Custom Poly-bag Packaging"],
+  },
+  {
+    title: "Netflix 'Mismatched' Cast",
+    project: "Promo Merch & Hoodies",
+    badge: "Creator Merch",
+    description: "Produced limited-edition custom printed hoodies and promotional goodies for the main cast of Netflix India's popular young-adult show 'Mismatched' to support launch campaign events.",
+    image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
+    features: ["380 GSM Organic Cotton", "Satin Lining Prints", "Premium Embroidered Emblems"],
+  },
+  {
+    title: "Corporate Swag & Welcome Kits",
+    project: "Prospectoo & Startup Cohorts",
+    badge: "B2B Projects",
+    description: "Developed and packed fully integrated employee kit boxes containing hoodies, notebook binders, and branded mugs for Prospectoo HQ and high-growth enterprise cohorts.",
+    image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
+    features: ["Curated Box Packing", "Custom Sleeve Sleeving", "Individual Employee Dispatch"],
+  },
+];
 
-  const handleWhatsAppClick = (collabTitle: string) => {
-    const message = encodeURIComponent(`Hi! I am looking to build a premium collection similar to the "${collabTitle}" collaboration.`);
-    window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
-  };
+const springTransition = {
+  type: "spring" as const,
+  stiffness: 70,
+  damping: 14,
+};
 
+const handleWhatsAppClick = (collabTitle: string) => {
+  const message = encodeURIComponent(`Hi! I am looking to build a premium collection similar to the "${collabTitle}" collaboration.`);
+  window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
+};
+
+export const CollabsSection: React.FC = React.memo(() => {
   return (
     <section id="collabs" className="w-full py-20 px-6 md:px-12 bg-black relative z-20">
       <div className="max-w-7xl mx-auto">
@@ -69,7 +75,7 @@ export const CollabsSection: React.FC = () => {
             initial={{ opacity: 0, y: 35, scale: 0.97 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ type: "spring", stiffness: 70, damping: 14 }}
+            transition={springTransition}
             className="lg:col-span-4 bg-zinc-950/60 border border-white/5 rounded-3xl p-8 text-left flex flex-col justify-between min-h-[400px]"
           >
             <div className="flex flex-col gap-6">
@@ -90,6 +96,7 @@ export const CollabsSection: React.FC = () => {
               </span>
               <button
                 onClick={() => handleWhatsAppClick("B2B Corporate Kits")}
+                aria-label="Enquire about B2B Corporate Kits via WhatsApp"
                 className="py-2.5 px-5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg"
               >
                 Let's Connect
@@ -99,13 +106,13 @@ export const CollabsSection: React.FC = () => {
 
           {/* Right Side: Showcase Cards List (Col: 8) */}
           <div className="lg:col-span-8 flex flex-col gap-8">
-            {collabs.map((collab, idx) => (
+            {COLLABS.map((collab, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 35, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ type: "spring", stiffness: 70, damping: 14, delay: idx * 0.1 }}
+                transition={{ ...springTransition, delay: idx * 0.1 }}
                 className="group p-6 md:p-8 rounded-3xl border border-white/5 bg-zinc-950/20 hover:bg-zinc-950/50 hover:border-white/10 transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-8 items-stretch"
               >
                 {/* Visual Thumbnail */}
@@ -149,6 +156,7 @@ export const CollabsSection: React.FC = () => {
                 <div className="flex md:flex-col justify-end items-end">
                   <button
                     onClick={() => handleWhatsAppClick(collab.title)}
+                    aria-label={`Enquire about ${collab.title} project via WhatsApp`}
                     className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-white/5 group-hover:bg-emerald-500 text-white rounded-full transition-all duration-300 hover:scale-110 cursor-pointer shadow-md group-hover:shadow-[0_4px_15px_rgba(16,185,129,0.3)] border border-white/10 group-hover:border-transparent"
                   >
                     <MessageSquare className="w-4 h-4 md:w-5 md:h-5 fill-white/20 group-hover:fill-white" />
@@ -163,4 +171,7 @@ export const CollabsSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+CollabsSection.displayName = "CollabsSection";
+

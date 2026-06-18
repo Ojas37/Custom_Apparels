@@ -11,6 +11,41 @@ interface GalleryItem {
   gridClass: string;
 }
 
+const items: GalleryItem[] = [
+  {
+    id: "work-1",
+    title: "Premium Employee Onboarding Kit",
+    client: "Prospectoo",
+    category: "Corporate Merchandise",
+    image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
+    gridClass: "md:col-span-8 md:row-span-1 h-[350px] md:h-[450px]",
+  },
+  {
+    id: "work-2",
+    title: "Oversized Streetwear Merch Lineup",
+    client: "Whoopers Gaming",
+    category: "Creator Merchandise",
+    image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
+    gridClass: "md:col-span-4 md:row-span-2 h-[500px] md:h-[700px]",
+  },
+  {
+    id: "work-3",
+    title: "Rigid Brand PR Boxes & Custom Tees",
+    client: "Raaviera Hotels",
+    category: "Brand Collaborations",
+    image: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop",
+    gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
+  },
+  {
+    id: "work-4",
+    title: "Embroidered Custom Satin Bomber Line",
+    client: "Dribblers Football Club",
+    category: "Outerwear & Apparel",
+    image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=800&auto=format&fit=crop",
+    gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
+  },
+];
+
 const RecentWorkCard: React.FC<{
   item: GalleryItem;
   onEnquire: (title: string) => void;
@@ -78,42 +113,7 @@ const RecentWorkCard: React.FC<{
   );
 };
 
-export const RecentWork: React.FC = () => {
-  const items: GalleryItem[] = [
-    {
-      id: "work-1",
-      title: "Premium Employee Onboarding Kit",
-      client: "Prospectoo",
-      category: "Corporate Merchandise",
-      image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
-      gridClass: "md:col-span-8 md:row-span-1 h-[350px] md:h-[450px]",
-    },
-    {
-      id: "work-2",
-      title: "Oversized Streetwear Merch Lineup",
-      client: "Whoopers Gaming",
-      category: "Creator Merchandise",
-      image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
-      gridClass: "md:col-span-4 md:row-span-2 h-[500px] md:h-[700px]",
-    },
-    {
-      id: "work-3",
-      title: "Rigid Brand PR Boxes & Custom Tees",
-      client: "Raaviera Hotels",
-      category: "Brand Collaborations",
-      image: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop",
-      gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
-    },
-    {
-      id: "work-4",
-      title: "Embroidered Custom Satin Bomber Line",
-      client: "Dribblers Football Club",
-      category: "Outerwear & Apparel",
-      image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=800&auto=format&fit=crop",
-      gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
-    },
-  ];
-
+export const RecentWork: React.FC = React.memo(() => {
   const handleWhatsAppClick = (title: string) => {
     const message = encodeURIComponent(`Hi! I saw the Recent Work item: "${title}" and want to get mockups/quotes for something similar.`);
     window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
@@ -152,4 +152,4 @@ export const RecentWork: React.FC = () => {
       </div>
     </section>
   );
-};
+});

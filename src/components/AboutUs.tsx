@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Cpu, Package } from "lucide-react";
 
-export const AboutUs: React.FC = () => {
+export const AboutUs: React.FC = React.memo(() => {
   return (
     <section id="about" className="w-full py-24 px-6 md:px-12 bg-zinc-950 border-t border-white/5 relative z-20 overflow-hidden">
       {/* Background glow overlay */}
@@ -111,4 +111,4 @@ export const AboutUs: React.FC = () => {
       </div>
     </section>
   );
-};
+});

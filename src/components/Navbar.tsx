@@ -1,7 +1,7 @@
 import React from "react";
 import { MessageSquare } from "lucide-react";
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC = React.memo(() => {
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hi! I'd like to make an enquiry for custom merchandise for my brand.");
     window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
@@ -10,7 +10,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="w-full absolute top-0 left-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 md:py-8 pointer-events-auto">
       {/* Top Left Logo */}
-      <a href="#" className="flex items-center gap-2 group">
+      <a href="#" aria-label="Custom Apparels Homepage" className="flex items-center gap-2 group">
         <img
           src="/logo.png"
           alt="CUSTOM APPARELS"
@@ -36,4 +36,4 @@ export const Navbar: React.FC = () => {
       </button>
     </nav>
   );
-};
+});

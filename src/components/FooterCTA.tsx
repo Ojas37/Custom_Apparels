@@ -1,16 +1,16 @@
 import React from "react";
 import { MessageSquare, PhoneCall, Mail, MapPin, Clock } from "lucide-react";
 
-export const FooterCTA: React.FC = () => {
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Hi! I am ready to start my custom merchandise project. I want a free mockup and pricing details.");
-    window.open("https://wa.me/917420852608?text=" + message, "_blank");
-  };
+const handleWhatsAppClick = () => {
+  const message = encodeURIComponent("Hi! I am ready to start my custom merchandise project. I want a free mockup and pricing details.");
+  window.open("https://wa.me/917420852608?text=" + message, "_blank");
+};
 
-  const handleCallClick = () => {
-    window.open("tel:+917420852608");
-  };
+const handleCallClick = () => {
+  window.open("tel:+917420852608");
+};
 
+export const FooterCTA: React.FC = React.memo(() => {
   return (
     <footer id="footer" className="w-full bg-black relative z-20 overflow-hidden border-t border-white/10">
       {/* 1. Slogan Banner CTA Block */}
@@ -188,4 +188,7 @@ export const FooterCTA: React.FC = () => {
       </section>
     </footer>
   );
-};
+});
+
+FooterCTA.displayName = "FooterCTA";
+

@@ -53,7 +53,62 @@ const IMAGES = [
   },
 ];
 
-export const CarouselSection: React.FC = () => {
+const getRoleStyle = (role: "center" | "left" | "right" | "back" | "hidden", isMobile: boolean) => {
+  switch (role) {
+    case "center":
+      return {
+        transform: `translateX(-50%) scale(${isMobile ? 1.1 : 1.25})`,
+        filter: "blur(0px)",
+        opacity: 1,
+        zIndex: 20,
+        left: "50%",
+        height: isMobile ? "45%" : "55%",
+        bottom: isMobile ? "22%" : "12%",
+      };
+    case "left":
+      return {
+        transform: "translateX(-50%) scale(0.9)",
+        filter: "blur(2px)",
+        opacity: 0.7,
+        zIndex: 10,
+        left: isMobile ? "15%" : "22%",
+        height: isMobile ? "32%" : "40%",
+        bottom: isMobile ? "26%" : "18%",
+      };
+    case "right":
+      return {
+        transform: "translateX(-50%) scale(0.9)",
+        filter: "blur(2px)",
+        opacity: 0.7,
+        zIndex: 10,
+        left: isMobile ? "85%" : "78%",
+        height: isMobile ? "32%" : "40%",
+        bottom: isMobile ? "26%" : "18%",
+      };
+    case "back":
+      return {
+        transform: "translateX(-50%) scale(0.75)",
+        filter: "blur(4px)",
+        opacity: 0.4,
+        zIndex: 5,
+        left: "50%",
+        height: isMobile ? "24%" : "30%",
+        bottom: isMobile ? "28%" : "22%",
+      };
+    case "hidden":
+      return {
+        transform: "translateX(-50%) scale(0.5)",
+        filter: "blur(8px)",
+        opacity: 0,
+        zIndex: 0,
+        left: "50%",
+        height: isMobile ? "20%" : "25%",
+        bottom: isMobile ? "28%" : "22%",
+      };
+  }
+};
+
+export const CarouselSection: React.FC = React.memo(() => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -117,61 +172,6 @@ export const CarouselSection: React.FC = () => {
   const rightIdx = (activeIndex + 1) % N;
   const backIdx = (activeIndex + 2) % N;
 
-  const getRoleStyle = (role: "center" | "left" | "right" | "back" | "hidden") => {
-    switch (role) {
-      case "center":
-        return {
-          transform: `translateX(-50%) scale(${isMobile ? 1.1 : 1.25})`,
-          filter: "blur(0px)",
-          opacity: 1,
-          zIndex: 20,
-          left: "50%",
-          height: isMobile ? "45%" : "55%",
-          bottom: isMobile ? "22%" : "12%",
-        };
-      case "left":
-        return {
-          transform: "translateX(-50%) scale(0.9)",
-          filter: "blur(2px)",
-          opacity: 0.7,
-          zIndex: 10,
-          left: isMobile ? "15%" : "22%",
-          height: isMobile ? "32%" : "40%",
-          bottom: isMobile ? "26%" : "18%",
-        };
-      case "right":
-        return {
-          transform: "translateX(-50%) scale(0.9)",
-          filter: "blur(2px)",
-          opacity: 0.7,
-          zIndex: 10,
-          left: isMobile ? "85%" : "78%",
-          height: isMobile ? "32%" : "40%",
-          bottom: isMobile ? "26%" : "18%",
-        };
-      case "back":
-        return {
-          transform: "translateX(-50%) scale(0.75)",
-          filter: "blur(4px)",
-          opacity: 0.4,
-          zIndex: 5,
-          left: "50%",
-          height: isMobile ? "24%" : "30%",
-          bottom: isMobile ? "28%" : "22%",
-        };
-      case "hidden":
-        return {
-          transform: "translateX(-50%) scale(0.5)",
-          filter: "blur(8px)",
-          opacity: 0,
-          zIndex: 0,
-          left: "50%",
-          height: isMobile ? "20%" : "25%",
-          bottom: isMobile ? "28%" : "22%",
-        };
-    }
-  };
-
   return (
     <div
       id="carousel-showcase"
@@ -225,7 +225,7 @@ export const CarouselSection: React.FC = () => {
             else if (idx === backIdx) role = "back";
             else role = "hidden";
 
-            const roleStyle = getRoleStyle(role);
+            const roleStyle = getRoleStyle(role, isMobile);
 
             return (
               <div
@@ -295,4 +295,7 @@ export const CarouselSection: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+CarouselSection.displayName = "CarouselSection";
+

@@ -9,7 +9,40 @@ interface Step {
   icon: React.ReactNode;
 }
 
-export const HowItWorks: React.FC = () => {
+const steps: Step[] = [
+  {
+    step: "01",
+    title: "Share Your Idea",
+    desc: "Send us your branding guidelines, custom logo, sketches, or ideas. Select your products, colors, and estimated quantities.",
+    icon: <Lightbulb className="w-5 h-5 text-emerald-400" />,
+  },
+  {
+    step: "02",
+    title: "Receive Free Mockup",
+    desc: "Our design team creates high-fidelity digital mockups showing logo positions, sizes, and print rendering within 24 hours.",
+    icon: <Eye className="w-5 h-5 text-emerald-400" />,
+  },
+  {
+    step: "03",
+    title: "Approve Design",
+    desc: "Review colors, request modifications, and approve the final digital sample sheets to lock in printing templates.",
+    icon: <CheckCircle className="w-5 h-5 text-emerald-400" />,
+  },
+  {
+    step: "04",
+    title: "Production Begins",
+    desc: "We print, embroider, stitch, pack, and run rigorous quality checks on every item inside our production facilities.",
+    icon: <Hammer className="w-5 h-5 text-emerald-400" />,
+  },
+  {
+    step: "05",
+    title: "Delivered to Your Doorstep",
+    desc: "Premium items are packed and shipped directly to your corporate HQ, event venue, or distributed to employees' homes.",
+    icon: <Truck className="w-5 h-5 text-emerald-400" />,
+  },
+];
+
+export const HowItWorks: React.FC = React.memo(() => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Track scroll progression over the timeline container to draw the active line
@@ -17,39 +50,6 @@ export const HowItWorks: React.FC = () => {
     target: containerRef,
     offset: ["start center", "end center"],
   });
-
-  const steps: Step[] = [
-    {
-      step: "01",
-      title: "Share Your Idea",
-      desc: "Send us your branding guidelines, custom logo, sketches, or ideas. Select your products, colors, and estimated quantities.",
-      icon: <Lightbulb className="w-5 h-5 text-emerald-400" />,
-    },
-    {
-      step: "02",
-      title: "Receive Free Mockup",
-      desc: "Our design team creates high-fidelity digital mockups showing logo positions, sizes, and print rendering within 24 hours.",
-      icon: <Eye className="w-5 h-5 text-emerald-400" />,
-    },
-    {
-      step: "03",
-      title: "Approve Design",
-      desc: "Review colors, request modifications, and approve the final digital sample sheets to lock in printing templates.",
-      icon: <CheckCircle className="w-5 h-5 text-emerald-400" />,
-    },
-    {
-      step: "04",
-      title: "Production Begins",
-      desc: "We print, embroider, stitch, pack, and run rigorous quality checks on every item inside our production facilities.",
-      icon: <Hammer className="w-5 h-5 text-emerald-400" />,
-    },
-    {
-      step: "05",
-      title: "Delivered to Your Doorstep",
-      desc: "Premium items are packed and shipped directly to your corporate HQ, event venue, or distributed to employees' homes.",
-      icon: <Truck className="w-5 h-5 text-emerald-400" />,
-    },
-  ];
 
   return (
     <section id="how-it-works" className="w-full py-20 px-6 md:px-12 bg-zinc-950/20 relative z-20 overflow-hidden">
@@ -163,4 +163,4 @@ export const HowItWorks: React.FC = () => {
       </div>
     </section>
   );
-};
+});

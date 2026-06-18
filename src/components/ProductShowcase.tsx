@@ -11,6 +11,105 @@ interface ShowcaseItem {
   color: string;
 }
 
+const items: ShowcaseItem[] = [
+  {
+    id: "oversized",
+    name: "Oversized Tees",
+    category: "Apparel",
+    image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop",
+    description: "Premium heavy-weight 240+ GSM cotton, loose comfort fit.",
+    color: "bg-slide-oversized/10 border-slide-oversized/20 text-slide-oversized",
+  },
+  {
+    id: "hoodie",
+    name: "Custom Hoodies",
+    category: "Apparel",
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=800&auto=format&fit=crop",
+    description: "Warm, cozy brushed fleece, double-needle stitched cuffs.",
+    color: "bg-slide-hoodie/10 border-slide-hoodie/20 text-slide-hoodie",
+  },
+  {
+    id: "polo",
+    name: "Classic Polo Tees",
+    category: "Apparel",
+    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800&auto=format&fit=crop",
+    description: "Pique knit collar, premium embroidery for executive styling.",
+    color: "bg-slide-polo/10 border-slide-polo/20 text-slide-polo",
+  },
+  {
+    id: "bomber",
+    name: "Bomber Jackets",
+    category: "Outerwear",
+    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop",
+    description: "Satin lining, high-density embroidered patch graphics.",
+    color: "bg-slide-bomber/10 border-slide-bomber/20 text-slide-bomber",
+  },
+  {
+    id: "cap",
+    name: "Premium Caps",
+    category: "Accessories",
+    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop",
+    description: "Structured panels, metallic buckle strap, premium stitching.",
+    color: "bg-slide-cap/10 border-slide-cap/20 text-slide-cap",
+  },
+  {
+    id: "tote",
+    name: "Canvas Tote Bags",
+    category: "Accessories",
+    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop",
+    description: "Heavy-duty canvas, printed logo, box-stitched handles.",
+    color: "bg-slide-tote/10 border-slide-tote/20 text-slide-tote",
+  },
+  {
+    id: "corp-kit",
+    name: "Employee Kits",
+    category: "Corporate Packages",
+    image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
+    description: "Curated welcome onboarding kits containing hoodies, diaries, and bottles.",
+    color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
+  },
+  {
+    id: "pr-box",
+    name: "PR & Welcome Boxes",
+    category: "Corporate Packages",
+    image: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop",
+    description: "Custom printed rigid boxes, personalized sleeve tags, and fillers.",
+    color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
+  },
+  {
+    id: "stickers",
+    name: "Custom Stickers",
+    category: "Creator Merch",
+    image: "/products/stickers.png",
+    description: "Die-cut waterproof vinyl sticker packs, matte and gloss finishes.",
+    color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { y: 35, opacity: 0, scale: 0.96 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 85,
+      damping: 15,
+    },
+  },
+} as const;
+
 const ProductCard: React.FC<{
   item: ShowcaseItem;
   variants: any;
@@ -76,110 +175,11 @@ const ProductCard: React.FC<{
   );
 };
 
-export const ProductShowcase: React.FC = () => {
-  const items: ShowcaseItem[] = [
-    {
-      id: "oversized",
-      name: "Oversized Tees",
-      category: "Apparel",
-      image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop",
-      description: "Premium heavy-weight 240+ GSM cotton, loose comfort fit.",
-      color: "bg-slide-oversized/10 border-slide-oversized/20 text-slide-oversized",
-    },
-    {
-      id: "hoodie",
-      name: "Custom Hoodies",
-      category: "Apparel",
-      image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=800&auto=format&fit=crop",
-      description: "Warm, cozy brushed fleece, double-needle stitched cuffs.",
-      color: "bg-slide-hoodie/10 border-slide-hoodie/20 text-slide-hoodie",
-    },
-    {
-      id: "polo",
-      name: "Classic Polo Tees",
-      category: "Apparel",
-      image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800&auto=format&fit=crop",
-      description: "Pique knit collar, premium embroidery for executive styling.",
-      color: "bg-slide-polo/10 border-slide-polo/20 text-slide-polo",
-    },
-    {
-      id: "bomber",
-      name: "Bomber Jackets",
-      category: "Outerwear",
-      image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop",
-      description: "Satin lining, high-density embroidered patch graphics.",
-      color: "bg-slide-bomber/10 border-slide-bomber/20 text-slide-bomber",
-    },
-    {
-      id: "cap",
-      name: "Premium Caps",
-      category: "Accessories",
-      image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop",
-      description: "Structured panels, metallic buckle strap, premium stitching.",
-      color: "bg-slide-cap/10 border-slide-cap/20 text-slide-cap",
-    },
-    {
-      id: "tote",
-      name: "Canvas Tote Bags",
-      category: "Accessories",
-      image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop",
-      description: "Heavy-duty canvas, printed logo, box-stitched handles.",
-      color: "bg-slide-tote/10 border-slide-tote/20 text-slide-tote",
-    },
-    {
-      id: "corp-kit",
-      name: "Employee Kits",
-      category: "Corporate Packages",
-      image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
-      description: "Curated welcome onboarding kits containing hoodies, diaries, and bottles.",
-      color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
-    },
-    {
-      id: "pr-box",
-      name: "PR & Welcome Boxes",
-      category: "Corporate Packages",
-      image: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop",
-      description: "Custom printed rigid boxes, personalized sleeve tags, and fillers.",
-      color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
-    },
-    {
-      id: "stickers",
-      name: "Custom Stickers",
-      category: "Creator Merch",
-      image: "/products/stickers.png",
-      description: "Die-cut waterproof vinyl sticker packs, matte and gloss finishes.",
-      color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
-    },
-  ];
-
+export const ProductShowcase: React.FC = React.memo(() => {
   const handleWhatsAppEnquiry = (productName: string) => {
     const message = encodeURIComponent(`Hi! I'd like to get a quote and design mockup for custom ${productName}.`);
     window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
   };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { y: 35, opacity: 0, scale: 0.96 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 85,
-        damping: 15,
-      },
-    },
-  } as const;
 
   return (
     <section id="products" className="w-full py-20 px-6 md:px-12 bg-black relative z-20">
@@ -221,4 +221,4 @@ export const ProductShowcase: React.FC = () => {
       </div>
     </section>
   );
-};
+});
