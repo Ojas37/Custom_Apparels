@@ -108,7 +108,7 @@ export const CarouselSection: React.FC = () => {
   const handleWhatsAppEnquiry = () => {
     const currentProduct = IMAGES[activeIndex];
     const message = encodeURIComponent(`Hi! I'm interested in custom ${currentProduct.name} and would like to get a quote and mockup.`);
-    window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
+    window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
   };
 
   // Derive roles

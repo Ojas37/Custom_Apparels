@@ -154,7 +154,7 @@ export const ProductShowcase: React.FC = () => {
 
   const handleWhatsAppEnquiry = (productName: string) => {
     const message = encodeURIComponent(`Hi! I'd like to get a quote and design mockup for custom ${productName}.`);
-    window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
+    window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
   };
 
   const containerVariants = {
