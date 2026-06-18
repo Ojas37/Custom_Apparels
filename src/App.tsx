@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Lenis from "lenis";
 import { Hero } from "./components/Hero";
 import { CarouselSection } from "./components/CarouselSection";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
@@ -13,8 +14,27 @@ import { Testimonials } from "./components/Testimonials";
 import { FooterCTA } from "./components/FooterCTA";
 
 const App: React.FC = () => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
-    <div id="carousel" className="w-full min-h-screen relative overflow-x-hidden scroll-smooth">
+    <div id="carousel" className="w-full min-h-screen relative overflow-x-hidden">
       {/* 1. Hero Section */}
       <Hero />
 

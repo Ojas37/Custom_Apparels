@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageSquare } from "lucide-react";
 
 interface GalleryItem {
@@ -10,6 +10,73 @@ interface GalleryItem {
   image: string;
   gridClass: string;
 }
+
+const RecentWorkCard: React.FC<{
+  item: GalleryItem;
+  onEnquire: (title: string) => void;
+}> = ({ item, onEnquire }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Track scroll progression relative to this card to shift the image
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Shifts the image within its clipped boundaries to create a parallax window mask effect
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+  return (
+    <motion.div
+      ref={containerRef}
+      initial={{ y: 45, opacity: 0, scale: 0.97 }}
+      whileInView={{ y: 0, opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ type: "spring", stiffness: 75, damping: 15 }}
+      className={`group relative rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 shadow-2xl flex flex-col ${item.gridClass}`}
+    >
+      {/* Image Layer with Parallax */}
+      <motion.img
+        src={item.image}
+        alt={item.title}
+        style={{ y, scale: 1.2 }}
+        className="absolute inset-0 w-full h-full object-cover origin-center z-0"
+      />
+
+      {/* Gradient dark mask for text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10 opacity-75 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
+
+      {/* Category tag */}
+      <div className="absolute top-6 left-6 z-20 px-3 py-1 rounded-full text-[10px] uppercase font-extrabold bg-zinc-950/90 border border-white/10 text-emerald-400 shadow-md">
+        {item.category}
+      </div>
+
+      {/* Reveal Hover Details */}
+      <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 z-20 flex flex-col justify-end gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+        
+        {/* Title and Client */}
+        <div className="text-left">
+          <span className="text-[10px] uppercase tracking-widest font-semibold text-white/50 block mb-1">
+            Client: {item.client}
+          </span>
+          <h3 className="text-white font-display text-2xl md:text-3xl uppercase leading-none tracking-wide">
+            {item.title}
+          </h3>
+        </div>
+
+        {/* WhatsApp Trigger */}
+        <button
+          onClick={() => onEnquire(item.title)}
+          className="flex items-center gap-2 self-start py-2.5 px-5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg shadow-emerald-500/20"
+        >
+          <MessageSquare className="w-3.5 h-3.5 fill-white" />
+          <span>Enquire Similar Mockup</span>
+        </button>
+
+      </div>
+    </motion.div>
+  );
+};
 
 export const RecentWork: React.FC = () => {
   const items: GalleryItem[] = [
@@ -74,53 +141,11 @@ export const RecentWork: React.FC = () => {
         {/* Masonry Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {items.map((item) => (
-            <motion.div
+            <RecentWorkCard
               key={item.id}
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ type: "spring", stiffness: 80, damping: 15 }}
-              className={`group relative rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 shadow-2xl flex flex-col ${item.gridClass}`}
-            >
-              {/* Image Layer */}
-              <img
-                src={item.image}
-                alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[700ms] ease-carousel z-0"
-              />
-
-              {/* Gradient dark mask for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-70 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
-
-              {/* Category tag */}
-              <div className="absolute top-6 left-6 z-20 px-3 py-1 rounded-full text-[10px] uppercase font-extrabold bg-zinc-950 border border-white/10 text-emerald-400 shadow-md">
-                {item.category}
-              </div>
-
-              {/* Reveal Hover Details */}
-              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 z-20 flex flex-col justify-end gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                
-                {/* Title and Client */}
-                <div className="text-left">
-                  <span className="text-[10px] uppercase tracking-widest font-semibold text-white/50 block mb-1">
-                    Client: {item.client}
-                  </span>
-                  <h3 className="text-white font-display text-2xl md:text-3xl uppercase leading-none tracking-wide">
-                    {item.title}
-                  </h3>
-                </div>
-
-                {/* WhatsApp Trigger */}
-                <button
-                  onClick={() => handleWhatsAppClick(item.title)}
-                  className="flex items-center gap-2 self-start py-2.5 px-5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg shadow-emerald-500/20"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 fill-white" />
-                  <span>Enquire Similar Mockup</span>
-                </button>
-
-              </div>
-            </motion.div>
+              item={item}
+              onEnquire={handleWhatsAppClick}
+            />
           ))}
         </div>
 

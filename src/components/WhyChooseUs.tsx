@@ -53,13 +53,15 @@ export const WhyChooseUs: React.FC = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 40, opacity: 0, scale: 0.95, rotate: -2 },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
+      rotate: 0,
       transition: {
         type: "spring",
-        stiffness: 100,
+        stiffness: 75,
         damping: 15,
       },
     },

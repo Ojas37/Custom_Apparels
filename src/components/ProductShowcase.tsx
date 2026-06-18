@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageSquare } from "lucide-react";
 
 interface ShowcaseItem {
@@ -10,6 +10,71 @@ interface ShowcaseItem {
   description: string;
   color: string;
 }
+
+const ProductCard: React.FC<{
+  item: ShowcaseItem;
+  variants: any;
+  onEnquire: (productName: string) => void;
+}> = ({ item, variants, onEnquire }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Scroll tracking to calculate active parallax offset inside individual card bounds
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Shifts image vertically to simulate depth as viewport moves
+  const y = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
+
+  return (
+    <motion.div
+      ref={containerRef}
+      variants={variants}
+      whileHover={{ y: -6 }}
+      className="group flex flex-col rounded-3xl border border-white/5 bg-zinc-950/50 hover:bg-zinc-950 hover:border-white/10 transition-all duration-300 overflow-hidden shadow-2xl relative"
+    >
+      {/* Product Category Pill */}
+      <div className="absolute top-4 left-4 z-30 px-3 py-1 rounded-full text-[10px] uppercase font-bold bg-black/60 border border-white/10 text-white/80">
+        {item.category}
+      </div>
+
+      {/* Product Image Area */}
+      <div className="h-64 md:h-72 w-full relative overflow-hidden bg-zinc-950">
+        {/* Background radial glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:scale-110 transition-transform duration-500 z-10" />
+        
+        <motion.img
+          src={item.image}
+          alt={item.name}
+          style={{ y, scale: 1.15 }}
+          className="w-full h-full object-cover group-hover:scale-[1.18] transition-transform duration-[500ms] ease-carousel origin-center"
+        />
+      </div>
+
+      {/* Product Details Area */}
+      <div className="p-6 flex flex-col justify-between flex-1 gap-6 border-t border-white/5">
+        <div>
+          <h3 className="text-white font-bold text-xl mb-2 flex items-center justify-between">
+            <span>{item.name}</span>
+          </h3>
+          <p className="text-white/50 text-xs md:text-sm leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+
+        {/* WhatsApp Enquiry Quick Link */}
+        <button
+          onClick={() => onEnquire(item.name)}
+          className="flex items-center justify-center gap-2 py-3 px-5 rounded-xl border border-emerald-500/20 hover:border-emerald-500/50 bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-400 text-xs uppercase font-bold tracking-wider transition-all duration-300 cursor-pointer"
+        >
+          <MessageSquare className="w-3.5 h-3.5 fill-emerald-400/20" />
+          <span>Enquire for {item.name}</span>
+        </button>
+      </div>
+    </motion.div>
+  );
+};
 
 export const ProductShowcase: React.FC = () => {
   const items: ShowcaseItem[] = [
@@ -103,13 +168,14 @@ export const ProductShowcase: React.FC = () => {
   };
 
   const cardVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 35, opacity: 0, scale: 0.96 },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
+        stiffness: 85,
         damping: 15,
       },
     },
@@ -143,50 +209,12 @@ export const ProductShowcase: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {items.map((item) => (
-            <motion.div
+            <ProductCard
               key={item.id}
+              item={item}
               variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="group flex flex-col rounded-3xl border border-white/5 bg-zinc-950/50 hover:bg-zinc-950 hover:border-white/10 transition-all duration-300 overflow-hidden shadow-2xl relative"
-            >
-              {/* Product Category Pill */}
-              <div className="absolute top-4 left-4 z-30 px-3 py-1 rounded-full text-[10px] uppercase font-bold bg-black/60 border border-white/10 text-white/80">
-                {item.category}
-              </div>
-
-              {/* Product Image Area */}
-              <div className="h-64 md:h-72 w-full relative overflow-hidden bg-zinc-950">
-                {/* Background radial glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:scale-110 transition-transform duration-500 z-10" />
-                
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[500ms] ease-carousel"
-                />
-              </div>
-
-              {/* Product Details Area */}
-              <div className="p-6 flex flex-col justify-between flex-1 gap-6 border-t border-white/5">
-                <div>
-                  <h3 className="text-white font-bold text-xl mb-2 flex items-center justify-between">
-                    <span>{item.name}</span>
-                  </h3>
-                  <p className="text-white/50 text-xs md:text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* WhatsApp Enquiry Quick Link */}
-                <button
-                  onClick={() => handleWhatsAppEnquiry(item.name)}
-                  className="flex items-center justify-center gap-2 py-3 px-5 rounded-xl border border-emerald-500/20 hover:border-emerald-500/50 bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-400 text-xs uppercase font-bold tracking-wider transition-all duration-300 cursor-pointer"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 fill-emerald-400/20" />
-                  <span>Enquire for {item.name}</span>
-                </button>
-              </div>
-            </motion.div>
+              onEnquire={handleWhatsAppEnquiry}
+            />
           ))}
         </motion.div>
 

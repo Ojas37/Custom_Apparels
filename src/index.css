@@ -77,3 +77,24 @@
 .ease-carousel {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Lenis smooth scroll layout settings */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}

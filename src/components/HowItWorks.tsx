@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
 import { Lightbulb, Eye, CheckCircle, Hammer, Truck } from "lucide-react";
 
 interface Step {
@@ -10,6 +10,14 @@ interface Step {
 }
 
 export const HowItWorks: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Track scroll progression over the timeline container to draw the active line
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+
   const steps: Step[] = [
     {
       step: "01",
@@ -61,10 +69,19 @@ export const HowItWorks: React.FC = () => {
         </div>
 
         {/* Timeline Track */}
-        <div className="relative w-full flex flex-col items-center">
+        <div ref={containerRef} className="relative w-full flex flex-col items-center">
           
-          {/* Vertical Connecting Line (Desktop) */}
+          {/* Vertical Background Track Line (Desktop & Mobile) */}
           <div className="absolute top-4 bottom-4 left-4 md:left-1/2 w-[2px] bg-white/10 -translate-x-1/2 z-0" />
+
+          {/* Active Colored Progress Line filled on scroll */}
+          <motion.div
+            style={{
+              scaleY: scrollYProgress,
+              transformOrigin: "top",
+            }}
+            className="absolute top-4 bottom-4 left-4 md:left-1/2 w-[2px] bg-emerald-500 -translate-x-1/2 z-0"
+          />
 
           {/* Steps List */}
           <div className="w-full flex flex-col gap-16 relative z-10">
@@ -118,7 +135,6 @@ export const HowItWorks: React.FC = () => {
                         whileInView={{ x: 0, opacity: 1 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ type: "spring", stiffness: 80, damping: 15 }}
-                        // Force desktop right side/mobile styling visibility
                         className={`flex flex-col items-start gap-2 ${isEven ? "md:hidden" : ""}`}
                       >
                         <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center border border-white/5 mb-2">

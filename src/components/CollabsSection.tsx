@@ -65,7 +65,13 @@ export const CollabsSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Side: Brand Statement Card (Col: 4) */}
-          <div className="lg:col-span-4 bg-zinc-950/60 border border-white/5 rounded-3xl p-8 text-left flex flex-col justify-between min-h-[400px]">
+          <motion.div 
+            initial={{ opacity: 0, y: 35, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ type: "spring", stiffness: 70, damping: 14 }}
+            className="lg:col-span-4 bg-zinc-950/60 border border-white/5 rounded-3xl p-8 text-left flex flex-col justify-between min-h-[400px]"
+          >
             <div className="flex flex-col gap-6">
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5 text-emerald-400" />
@@ -89,17 +95,17 @@ export const CollabsSection: React.FC = () => {
                 Let's Connect
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side: Showcase Cards List (Col: 8) */}
           <div className="lg:col-span-8 flex flex-col gap-8">
             {collabs.map((collab, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 35, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ type: "spring", stiffness: 70, damping: 14, delay: idx * 0.1 }}
                 className="group p-6 md:p-8 rounded-3xl border border-white/5 bg-zinc-950/20 hover:bg-zinc-950/50 hover:border-white/10 transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-8 items-stretch"
               >
                 {/* Visual Thumbnail */}

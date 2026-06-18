@@ -12,7 +12,13 @@ export const AboutUs: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           
           {/* Left Side: Brand Story & Mission */}
-          <div className="lg:col-span-5 text-left flex flex-col justify-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ type: "spring", stiffness: 60, damping: 15 }}
+            className="lg:col-span-5 text-left flex flex-col justify-center"
+          >
             <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
               Craft & Vision
             </span>
@@ -31,17 +37,17 @@ export const AboutUs: React.FC = () => {
                 Whether you need a dozen bespoke hoodies for a startup cohort, custom activewear for celebrity drops, or thousands of PR kits, we deliver perfection.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side: Features/Highlights Grid */}
           <div className="lg:col-span-7 flex flex-col gap-6 w-full">
             
             {/* Card 1 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: 35, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ type: "spring", stiffness: 70, damping: 14 }}
               className="p-6 md:p-8 rounded-3xl border border-white/5 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-white/10 transition-all duration-300 flex gap-6 items-start text-left"
             >
               <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white">
@@ -59,10 +65,10 @@ export const AboutUs: React.FC = () => {
 
             {/* Card 2 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              initial={{ opacity: 0, y: 35, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ type: "spring", stiffness: 70, damping: 14, delay: 0.1 }}
               className="p-6 md:p-8 rounded-3xl border border-white/5 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-white/10 transition-all duration-300 flex gap-6 items-start text-left"
             >
               <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white">
@@ -80,10 +86,10 @@ export const AboutUs: React.FC = () => {
 
             {/* Card 3 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              initial={{ opacity: 0, y: 35, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ type: "spring", stiffness: 70, damping: 14, delay: 0.2 }}
               className="p-6 md:p-8 rounded-3xl border border-white/5 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-white/10 transition-all duration-300 flex gap-6 items-start text-left"
             >
               <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white">

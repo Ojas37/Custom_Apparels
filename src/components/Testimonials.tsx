@@ -54,10 +54,10 @@ export const Testimonials: React.FC = () => {
           {testimonials.map((test, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 35, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              transition={{ type: "spring", stiffness: 70, damping: 14, delay: idx * 0.1 }}
               className="p-8 rounded-3xl border border-white/5 bg-zinc-950/30 flex flex-col justify-between text-left gap-8 shadow-xl hover:border-white/10 transition-colors duration-300"
             >
               {/* Quote Block */}
