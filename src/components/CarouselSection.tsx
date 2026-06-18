@@ -174,6 +174,7 @@ export const CarouselSection: React.FC = () => {
 
   return (
     <div
+      id="carousel-showcase"
       className="relative w-full overflow-hidden transition-colors duration-[650ms]"
       style={{
         backgroundColor: IMAGES[activeIndex].bg,
