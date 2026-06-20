@@ -185,7 +185,7 @@ export const FooterCTA: React.FC = React.memo(() => {
         {/* 3. Bottom Copyright Bar */}
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
           <span>
-            © 2026 Custom Apparels Pvt. Ltd. — Your Custom Printing & Merchandise Partner.
+            © 2026 Custom Apparels — Your Trusted Merchandise Partner
           </span>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-white/50 transition-colors duration-200">Sitemap</a>
