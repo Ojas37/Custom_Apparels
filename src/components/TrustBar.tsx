@@ -50,7 +50,7 @@ export const TrustBar: React.FC = React.memo(() => {
 
           {/* Marquee Track */}
           <div
-            className="flex gap-20 md:gap-24 w-max animate-marquee items-center"
+            className="flex gap-4 md:gap-6 w-max animate-marquee items-center"
             style={{
               animationPlayState: clickedLogoIndex !== null ? "paused" : "running",
             }}
@@ -75,7 +75,7 @@ export const TrustBar: React.FC = React.memo(() => {
                     e.stopPropagation();
                     handleLogoClick(idx);
                   }}
-                  className={`h-14 w-36 md:h-18 md:w-48 flex items-center justify-center transition-all duration-500 ease-out cursor-pointer ${styleClasses}`}
+                  className={`h-28 w-64 md:h-32 md:w-80 flex items-center justify-center transition-all duration-500 ease-out cursor-pointer ${styleClasses}`}
                 >
                   <img
                     src={logo.path}
