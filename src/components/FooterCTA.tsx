@@ -91,10 +91,18 @@ export const FooterCTA: React.FC = React.memo(() => {
                 <span>(+91) 74208 52608</span>
               </a>
 
+              <a
+                href="tel:+919004490995"
+                className="flex items-center gap-2.5 hover:text-white transition-colors duration-200"
+              >
+                <PhoneCall className="w-4 h-4 text-white/40" />
+                <span>(+91) 90044 90995</span>
+              </a>
+
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-white/40 mt-0.5 flex-shrink-0" />
                 <span className="leading-relaxed">
-                  Navi Mumbai, India
+                  Office 642, 6th Floor, Intelligentia Business Park,<br />Sector 24, Vashi, Navi Mumbai, Maharashtra 400703
                 </span>
               </div>
 
