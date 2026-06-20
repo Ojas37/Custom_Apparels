@@ -77,10 +77,10 @@ export const WhyChooseUs: React.FC = React.memo(() => {
             Why Partner With Us
           </span>
           <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none mb-4">
-            Built For Quality, Scaled For Speed.
+            Quality You Can Feel.<br />Service You Can Trust.
           </h2>
           <p className="text-white/60 text-sm md:text-base max-w-xl font-medium">
-            We handle everything from initial digital design concepts to final shipping logistics, making custom apparel ordering completely hassle-free.
+            End-to-end merchandise solutions for businesses, events, and teams.
           </p>
         </div>
 

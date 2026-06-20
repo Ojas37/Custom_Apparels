@@ -14,6 +14,8 @@ const LOGOS: LogoItem[] = [
   { name: "Dribblers FC", path: "/logos/dribblers.png" },
   { name: "Royal Wealth", path: "/logos/wealth.png" },
   { name: "Whoopers", path: "/logos/whoopers.png" },
+  { name: "Dragon Tales", path: "/logos/2.png" },
+  { name: "No Earth B", path: "/logos/7.png" },
 ];
 
 // Triplicate the logos array to guarantee continuous looping on large viewports

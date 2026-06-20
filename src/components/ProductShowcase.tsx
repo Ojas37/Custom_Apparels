@@ -196,7 +196,7 @@ export const ProductShowcase: React.FC = React.memo(() => {
             </h2>
           </div>
           <p className="text-white/60 text-sm md:text-base max-w-sm font-medium">
-            Explore our core products. From streetwear apparel to corporate swag, we brand it exactly the way you imagine.
+            Whether you're building a brand, outfitting a team, or creating something personal, discover products designed to make an impact.
           </p>
         </div>
 

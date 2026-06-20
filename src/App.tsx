@@ -9,7 +9,7 @@ import { AboutUs } from "./components/AboutUs";
 import { ProductShowcase } from "./components/ProductShowcase";
 import { HowItWorks } from "./components/HowItWorks";
 import { RecentWork } from "./components/RecentWork";
-import { CollabsSection } from "./components/CollabsSection";
+
 import { Testimonials } from "./components/Testimonials";
 import { FooterCTA } from "./components/FooterCTA";
 
@@ -59,8 +59,7 @@ const App: React.FC = () => {
       {/* 6. Recent Work (Masonry portfolio gallery - largest section) */}
       <RecentWork />
 
-      {/* 7. Clients & Collaborations (B2B kits & Influencer/Celebrity drops) */}
-      <CollabsSection />
+
 
       {/* 8. Testimonials */}
       <Testimonials />

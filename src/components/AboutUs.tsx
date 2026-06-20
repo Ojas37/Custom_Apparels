@@ -23,8 +23,7 @@ export const AboutUs: React.FC = React.memo(() => {
               Craft & Vision
             </span>
             <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-[0.95] mb-6 font-extrabold">
-              Manufacturing Garments That<br />
-              <span className="font-serif italic font-normal text-zinc-400 lowercase tracking-normal">carry identity.</span>
+              Where Ideas<br />Become Merchandise.
             </h2>
             <div className="flex flex-col gap-4 text-white/70 text-sm md:text-base font-normal leading-relaxed">
               <p>
@@ -34,7 +33,7 @@ export const AboutUs: React.FC = React.memo(() => {
                 Every piece in our catalog is crafted from scratch—selecting the finest long-staple cotton, tailoring fits for everyday comfort, and executing prints with computer-guided precision.
               </p>
               <p className="text-white/40 text-xs border-l-2 border-white/15 pl-4 mt-2 italic">
-                Whether you need a dozen bespoke hoodies for a startup cohort, custom activewear for celebrity drops, or thousands of PR kits, we deliver perfection.
+                From concept development and design to production and fulfillment, we bring merchandise projects to life at any scale.
               </p>
             </div>
           </motion.div>
@@ -58,7 +57,7 @@ export const AboutUs: React.FC = React.memo(() => {
                   Sourcing Premium Fabrics
                 </h3>
                 <p className="text-white/50 text-xs md:text-sm leading-relaxed">
-                  We custom knit our own fabrics, offering heavyweight organic cotton (240+ GSM for tees, 380+ GSM for hoodies) that resists shrinking and offers a lush, soft retail feel.
+                  We source high-quality apparel and merchandise that offer superior comfort, durability, and a retail-ready finish—ensuring your brand looks its best.
                 </p>
               </div>
             </motion.div>
@@ -79,7 +78,7 @@ export const AboutUs: React.FC = React.memo(() => {
                   Precision Print & Embroidery
                 </h3>
                 <p className="text-white/50 text-xs md:text-sm leading-relaxed">
-                  From computer-guided multi-head embroidery machines for sharp crests to vintage puff, high-density, and screen prints that do not crack, your artwork is rendered flawlessly.
+                  From sharp logo embroidery to vibrant DTF and screen printing, we ensure every detail is reproduced with precision and consistency.
                 </p>
               </div>
             </motion.div>
