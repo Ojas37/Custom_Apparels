@@ -10,39 +10,64 @@ export interface Product {
 
 const IMAGES = [
   {
-    name: "Oversized Tee",
-    src: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop",
-    description: "Premium heavy-weight 240+ GSM cotton, loose comfort fit.",
+    name: "Round Neck T-shirt",
+    src: "/products/1.png",
+    bg: "#cbcbcb",
   },
   {
-    name: "Custom Hoodie",
-    src: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=800&auto=format&fit=crop",
-    description: "Warm, cozy brushed fleece, double-needle stitched cuffs.",
+    name: "Oversized T-shirt",
+    src: "/products/2.png",
+    bg: "#b8b8b8",
   },
   {
-    name: "Polo T-Shirt",
-    src: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=800&auto=format&fit=crop",
-    description: "Pique knit collar, premium embroidery for executive styling.",
+    name: "Polo T-shirt",
+    src: "/products/3.png",
+    bg: "#b7b5b5",
   },
   {
-    name: "Canvas Tote Bag",
-    src: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop",
-    description: "Heavy-duty canvas, printed logo, box-stitched handles.",
+    name: "Pullover Hoodie",
+    src: "/products/4.png",
+    bg: "#b3b0b0",
   },
   {
-    name: "Premium Cap",
-    src: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop",
-    description: "Structured panels, metallic buckle strap, premium stitching.",
+    name: "Zipper Hoodie",
+    src: "/products/5.png",
+    bg: "#b9b6b7",
   },
   {
-    name: "Bomber Jacket",
-    src: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop",
-    description: "Satin lining, high-density embroidered patch graphics.",
+    name: "Sweatshirt",
+    src: "/products/6.png",
+    bg: "#afadae",
   },
   {
-    name: "Regular T-Shirt",
-    src: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop",
-    description: "Premium combed cotton, regular retail fit, double-needle stitched.",
+    name: "Caps",
+    src: "/products/7.png",
+    bg: "#b3b0b1",
+  },
+  {
+    name: "Tote Bag",
+    src: "/products/8.png",
+    bg: "#b3b0b1",
+  },
+  {
+    name: "Apron",
+    src: "/products/9.png",
+    bg: "#adaaab",
+  },
+  {
+    name: "Merch Kit",
+    src: "/products/12.png",
+    bg: "#cbcbcb",
+  },
+  {
+    name: "Phone Case",
+    src: "/products/11.png",
+    bg: "#cbcbcb",
+  },
+  {
+    name: "Other Accessories",
+    src: "/products/10.png",
+    bg: "#adaaab",
   },
 ];
 
@@ -297,18 +322,19 @@ export const CarouselSection: React.FC = React.memo(() => {
             return (
               <div
                 key={idx}
-                className="absolute overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl bg-zinc-950/40"
+                className="absolute overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl"
                 style={{
                   aspectRatio: "0.6 / 1",
                   willChange: "transform, filter, opacity",
                   transition: "transform 650ms cubic-bezier(0.4, 0, 0.2, 1), filter 650ms cubic-bezier(0.4, 0, 0.2, 1), opacity 650ms cubic-bezier(0.4, 0, 0.2, 1), left 650ms cubic-bezier(0.4, 0, 0.2, 1), bottom 650ms cubic-bezier(0.4, 0, 0.2, 1), height 650ms cubic-bezier(0.4, 0, 0.2, 1)",
+                  backgroundColor: item.bg,
                   ...roleStyle,
                 }}
               >
                 <img
                   src={item.src}
                   alt={item.name}
-                  className="w-full h-full object-cover select-none"
+                  className="w-full h-full object-contain select-none"
                   draggable={false}
                 />
               </div>
@@ -321,11 +347,8 @@ export const CarouselSection: React.FC = React.memo(() => {
           className="absolute bottom-6 left-4 sm:bottom-20 sm:left-24 z-[60]"
           style={{ maxWidth: "320px" }}
         >
-          <p className="text-white opacity-[0.95] font-bold uppercase tracking-wider mb-2 sm:mb-3 text-base sm:text-[22px] leading-tight font-display">
+          <p className="text-white opacity-[0.95] font-bold uppercase tracking-wider mb-4 sm:mb-5 text-base sm:text-[22px] leading-tight font-display">
             {IMAGES[activeIndex].name}
-          </p>
-          <p className="hidden sm:block text-white opacity-[0.85] text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5 font-normal">
-            {IMAGES[activeIndex].description}
           </p>
           <div className="flex items-center gap-3">
             <button
