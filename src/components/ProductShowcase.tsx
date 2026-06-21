@@ -19,7 +19,7 @@ const items: ShowcaseItem[] = [
     name: "Round Neck T-shirt",
     category: "Apparel",
     image: "/products/1.png",
-    description: "Available in a variety of colours, sizes, and fabric options, including Cotton, Polyester, Poly-Cotton, and blended fabrics. Perfect for corporate, promotional, and branded merchandise.",
+    description: "Available in multiple colours, sizes, and fabric options including Cotton, Polyester, and Poly-Cotton.",
     color: "",
   },
   {
@@ -27,7 +27,7 @@ const items: ShowcaseItem[] = [
     name: "Oversized T-shirt",
     category: "Apparel",
     image: "/products/2.png",
-    description: "Available in a variety of colours, sizes, and fabric options, including Cotton, Polyester, Poly-Cotton, and blended fabrics. Perfect for corporate, promotional, and branded merchandise.",
+    description: "Available in multiple colours, sizes, and fabric options including Cotton, Polyester, and Poly-Cotton.",
     color: "",
   },
   {
@@ -35,7 +35,7 @@ const items: ShowcaseItem[] = [
     name: "Polo T-shirt",
     category: "Apparel",
     image: "/products/3.png",
-    description: "Available in a variety of colours, sizes, and fabric options, including Cotton, Polyester, Poly-Cotton, and blended fabrics. Perfect for corporate, promotional, and branded merchandise.",
+    description: "Available in multiple colours, sizes, and fabric options including Cotton, Polyester, and Poly-Cotton.",
     color: "",
   },
   {
