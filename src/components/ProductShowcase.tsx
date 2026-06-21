@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { MessageSquare } from "lucide-react";
 
 interface ShowcaseItem {
@@ -139,20 +139,8 @@ const ProductCard: React.FC<{
   variants: any;
   onEnquire: (productName: string) => void;
 }> = ({ item, variants, onEnquire }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Scroll tracking to calculate active parallax offset inside individual card bounds
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Shifts image vertically to simulate depth as viewport moves
-  const y = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
-
   return (
     <motion.div
-      ref={containerRef}
       variants={variants}
       whileHover={{ y: -6 }}
       className="group flex flex-col rounded-2xl sm:rounded-3xl border border-white/5 bg-zinc-950/50 hover:bg-zinc-950 hover:border-white/10 transition-all duration-300 overflow-hidden shadow-2xl relative"
@@ -163,15 +151,14 @@ const ProductCard: React.FC<{
       </div>
 
       {/* Product Image Area */}
-      <div className="h-36 sm:h-52 md:h-72 w-full relative overflow-hidden bg-zinc-950">
+      <div className="aspect-square w-full relative overflow-hidden bg-zinc-950">
         {/* Background radial glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:scale-110 transition-transform duration-500 z-10" />
         
-        <motion.img
+        <img
           src={item.image}
           alt={item.name}
-          style={{ y, scale: 1.15 }}
-          className="w-full h-full object-cover group-hover:scale-[1.18] transition-transform duration-[500ms] ease-carousel origin-center"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-carousel origin-center"
         />
       </div>
 
