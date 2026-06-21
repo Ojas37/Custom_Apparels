@@ -3,11 +3,11 @@ import { MessageSquare, PhoneCall, Mail, MapPin, Clock } from "lucide-react";
 
 const handleWhatsAppClick = () => {
   const message = encodeURIComponent("Hi! I am ready to start my custom merchandise project. I want a free mockup and pricing details.");
-  window.open("https://wa.me/917420852608?text=" + message, "_blank");
+  window.open("https://wa.me/917021012952?text=" + message, "_blank");
 };
 
 const handleCallClick = () => {
-  window.open("tel:+917420852608");
+  window.open("tel:+917021012952");
 };
 
 export const FooterCTA: React.FC = React.memo(() => {
@@ -84,11 +84,11 @@ export const FooterCTA: React.FC = React.memo(() => {
               </a>
 
               <a
-                href="tel:+917420852608"
+                href="tel:+917021012952"
                 className="flex items-center gap-2.5 hover:text-white transition-colors duration-200"
               >
                 <PhoneCall className="w-4 h-4 text-white/40" />
-                <span>(+91) 74208 52608</span>
+                <span>(+91) 70210 12952</span>
               </a>
 
               <a

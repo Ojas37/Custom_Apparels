@@ -131,7 +131,7 @@ const RecentWorkCard: React.FC<{
 export const RecentWork: React.FC = React.memo(() => {
   const handleWhatsAppClick = (title: string) => {
     const message = encodeURIComponent(`Hi! I saw the Recent Work item: "${title}" and want to get mockups/quotes for something similar.`);
-    window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
+    window.open(`https://wa.me/917021012952?text=${message}`, "_blank");
   };
 
   return (

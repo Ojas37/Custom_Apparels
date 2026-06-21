@@ -204,7 +204,7 @@ const ProductCard: React.FC<{
 export const ProductShowcase: React.FC = React.memo(() => {
   const handleWhatsAppEnquiry = (productName: string) => {
     const message = encodeURIComponent(`Hi! I'd like to get a quote and design mockup for custom ${productName}.`);
-    window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
+    window.open(`https://wa.me/917021012952?text=${message}`, "_blank");
   };
 
   return (
