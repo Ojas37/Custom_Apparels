@@ -19,7 +19,7 @@ const items: ShowcaseItem[] = [
     name: "Round Neck T-shirt",
     category: "Apparel",
     image: "/products/1.png",
-    description: "Premium 180 GSM combed cotton crewnecks, perfect for everyday team wear.",
+    description: "Available in a variety of colours, sizes, and fabric options, including Cotton, Polyester, Poly-Cotton, and blended fabrics. Perfect for corporate, promotional, and branded merchandise.",
     color: "",
   },
   {
@@ -27,7 +27,7 @@ const items: ShowcaseItem[] = [
     name: "Oversized T-shirt",
     category: "Apparel",
     image: "/products/2.png",
-    description: "Heavy-weight 240+ GSM cotton boxy fit with dropped shoulders for premium brand merch.",
+    description: "Available in a variety of colours, sizes, and fabric options, including Cotton, Polyester, Poly-Cotton, and blended fabrics. Perfect for corporate, promotional, and branded merchandise.",
     color: "",
   },
   {
@@ -35,7 +35,7 @@ const items: ShowcaseItem[] = [
     name: "Polo T-shirt",
     category: "Apparel",
     image: "/products/3.png",
-    description: "Pique knit double-stitched polo collared shirts with high-density brand embroidery.",
+    description: "Available in a variety of colours, sizes, and fabric options, including Cotton, Polyester, Poly-Cotton, and blended fabrics. Perfect for corporate, promotional, and branded merchandise.",
     color: "",
   },
   {
