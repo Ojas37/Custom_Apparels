@@ -1,36 +1,28 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface TestimonialCard {
-  quote: string;
-  name: string;
-  role: string;
-  company: string;
-  avatar: string;
+  image: string;
+  alt: string;
 }
 
 const TESTIMONIALS: TestimonialCard[] = [
   {
-    quote: "Ordering 1,500 onboarding kit boxes felt completely hands-off. Custom Apparels handled packaging and dispatched them directly to remote employee homes in 18 states. The hoodie fabric is thick and the print detail is immaculate.",
-    name: "Rohan Deshmukh",
-    role: "VP of People Operations",
-    company: "Prospectoo",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120",
+    image: "/reviews/Bhoomika Review.png",
+    alt: "Bhoomika Review",
   },
   {
-    quote: "Our fans are absolutely obsessed with the heavy-weight oversized tees. The 240GSM cotton quality and high-density screen printing are equivalent to global streetwear brands. The enquirer process was super quick.",
-    name: "Sneha Nair",
-    role: "Creator Merchandise Director",
-    company: "Whoopers Gaming",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120",
+    image: "/reviews/HARITA REVIEW.png",
+    alt: "Harita Review",
   },
   {
-    quote: "We required custom embroidered polo shirts for our hospitality staff across hotel branches. The embroidery lines are sharp, and the pique fabric maintains color brightness even after continuous industrial washes.",
-    name: "Vikram Sen",
-    role: "General Manager",
-    company: "Raaviera Hotels",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
+    image: "/reviews/Royal Wealth Review.png",
+    alt: "Royal Wealth Review",
+  },
+  {
+    image: "/reviews/Smriti review.png",
+    alt: "Smriti Review",
   },
 ];
 
@@ -181,38 +173,13 @@ export const Testimonials: React.FC = React.memo(() => {
                 <div
                   key={idx}
                   style={{ width: cardWidth ? `${cardWidth}px` : "100%" }}
-                  className="flex-shrink-0 p-8 rounded-3xl border border-white/5 bg-zinc-950/30 flex flex-col justify-between text-left gap-8 shadow-xl hover:border-white/10 transition-colors duration-300"
+                  className="flex-shrink-0 rounded-3xl overflow-hidden border border-white/5 bg-zinc-950/30 shadow-xl hover:border-white/10 transition-colors duration-300"
                 >
-                  {/* Quote Block */}
-                  <div>
-                    {/* 5-Star Row */}
-                    <div className="flex gap-1 mb-6">
-                      {[...Array(5)].map((_, sIdx) => (
-                        <Star key={sIdx} className="w-4 h-4 fill-white/80 text-white/80" />
-                      ))}
-                    </div>
-                    
-                    <p className="text-white/80 text-sm md:text-base italic leading-relaxed">
-                      "{test.quote}"
-                    </p>
-                  </div>
-
-                  {/* Author Info block */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                    <img
-                      src={test.avatar}
-                      alt={`${test.name} avatar`}
-                      className="w-12 h-12 rounded-full object-cover border border-white/10 pointer-events-none"
-                    />
-                    <div className="text-left">
-                      <h4 className="text-white font-bold text-sm tracking-wide">
-                        {test.name}
-                      </h4>
-                      <p className="text-white/40 text-xs mt-0.5">
-                        {test.role}, <span className="text-white/70">{test.company}</span>
-                      </p>
-                    </div>
-                  </div>
+                  <img
+                    src={test.image}
+                    alt={test.alt}
+                    className="w-full h-auto block pointer-events-none"
+                  />
                 </div>
               ))}
             </motion.div>
