@@ -70,7 +70,7 @@ export const WhyChooseUs: React.FC = React.memo(() => {
   return (
     <section id="why-choose-us" className="w-full py-20 px-6 md:px-12 bg-zinc-950/40 relative z-20">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
         <div className="text-left mb-16">
           <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">

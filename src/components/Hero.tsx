@@ -141,7 +141,7 @@ export const Hero: React.FC = () => {
               <p className="text-white/40 text-[10px] font-medium tracking-wide mt-2">Order Capacity</p>
             </div>
             <div>
-              <h4 className="text-white font-serif italic text-3xl md:text-4xl font-normal">Pan India</h4>
+              <h4 className="text-white font-serif italic text-2xl md:text-4xl font-normal whitespace-nowrap">Pan India</h4>
               <p className="text-white/40 text-[10px] font-medium tracking-wide mt-2">Direct Delivery</p>
             </div>
             <div>
