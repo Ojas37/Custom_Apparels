@@ -45,6 +45,8 @@ const items: ShowcaseItem[] = [
     image: "/products/4.png",
     description: "Super soft 320+ GSM brushed fleece pullover hoodies with double-lined hoods.",
     color: "",
+    bgOverride: "#b3b0b0",
+    padImage: true,
   },
   {
     id: "zip-hoodie",
