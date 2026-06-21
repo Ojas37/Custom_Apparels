@@ -1,244 +1,293 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
-interface TestimonialCard {
-  quote: string;
+interface Testimonial {
+  id: string;
   name: string;
   role: string;
-  company: string;
-  avatar: string;
+  rating: number;
+  quote: string;
+  productImage: string;
+  productLabel: string;
+  initial: string;
+  accentColor: string;
 }
 
-const TESTIMONIALS: TestimonialCard[] = [
+const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "Ordering 1,500 onboarding kit boxes felt completely hands-off. Custom Apparels handled packaging and dispatched them directly to remote employee homes in 18 states. The hoodie fabric is thick and the print detail is immaculate.",
-    name: "Rohan Deshmukh",
-    role: "VP of People Operations",
-    company: "Prospectoo",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120",
+    id: "t1",
+    name: "Bhoomika",
+    role: "Custom Graphic Tees",
+    rating: 5,
+    quote:
+      "Loved the quality, print everything about the tshirt. Probably will buy it again and again 😍",
+    productImage: "/testimonials/graphic-tees.jpeg",
+    productLabel: "Graphic Tees",
+    initial: "B",
+    accentColor: "#e63946",
   },
   {
-    quote: "Our fans are absolutely obsessed with the heavy-weight oversized tees. The 240GSM cotton quality and high-density screen printing are equivalent to global streetwear brands. The enquirer process was super quick.",
-    name: "Sneha Nair",
-    role: "Creator Merchandise Director",
-    company: "Whoopers Gaming",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120",
+    id: "t2",
+    name: "Harita Dadu",
+    role: "Premium Gift Kit",
+    rating: 5,
+    quote: "One of the best for the customized merch",
+    productImage: "/testimonials/redbull-kit.jpeg",
+    productLabel: "Custom Gift Box",
+    initial: "H",
+    accentColor: "#3a86ff",
   },
   {
-    quote: "We required custom embroidered polo shirts for our hospitality staff across hotel branches. The embroidery lines are sharp, and the pique fabric maintains color brightness even after continuous industrial washes.",
-    name: "Vikram Sen",
-    role: "General Manager",
-    company: "Raaviera Hotels",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
+    id: "t3",
+    name: "Daniel Roy",
+    role: "Corporate Polo Shirts",
+    rating: 5,
+    quote: "Great tshirt quality loved it",
+    productImage: "/testimonials/royal-wealth-polos.jpeg",
+    productLabel: "Corporate Polos",
+    initial: "D",
+    accentColor: "#2dc653",
+  },
+  {
+    id: "t4",
+    name: "Smriti",
+    role: "Custom Graphic Tees",
+    rating: 5,
+    quote:
+      "I checked a lot of different custom tshirt pages and most of them were very overpriced. But i came across Custom Apparels and really loved their quality and great pricing. I would highly recommend to give it a try for custom products",
+    productImage: "/testimonials/rocking-idiots.jpeg",
+    productLabel: "Custom Printed Tees",
+    initial: "S",
+    accentColor: "#ff9f1c",
   },
 ];
 
 export const Testimonials: React.FC = React.memo(() => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(3);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const gap = 32; // gap-8 is 32px
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
-  // Monitor responsive column changes
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setVisibleCount(1);
-      } else if (window.innerWidth < 1024) {
-        setVisibleCount(2);
-      } else {
-        setVisibleCount(3);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const total = TESTIMONIALS.length;
 
-  // Measure container size dynamically
-  useEffect(() => {
-    if (!containerRef.current) return;
-    const observer = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        setContainerWidth(entry.contentRect.width);
-      }
-    });
-    observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const totalItems = TESTIMONIALS.length;
-  const maxIndex = Math.max(0, totalItems - visibleCount);
-
-  // Auto adjust index when resizing window
-  useEffect(() => {
-    if (currentIndex > maxIndex) {
-      setCurrentIndex(maxIndex);
-    }
-  }, [visibleCount, maxIndex]);
-
-  const handleNext = () => {
-    if (currentIndex < maxIndex) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      setCurrentIndex(0); // Infinite loop back to beginning
-    }
+  const goTo = (idx: number, dir: 1 | -1) => {
+    setDirection(dir);
+    setCurrent((idx + total) % total);
   };
 
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    } else {
-      setCurrentIndex(maxIndex); // Infinite loop to the end
+  const handlePrev = () => goTo(current - 1, -1);
+  const handleNext = () => goTo(current + 1, 1);
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) handleNext();
+      else handlePrev();
     }
+    touchStartX.current = null;
+    touchEndX.current = null;
   };
 
-  // Drag snapping calculations
-  const handleDragEnd = (_event: any, info: any) => {
-    const swipeThreshold = 55;
-    const swipeVelocity = 0.5;
-    const offset = info.offset.x;
-    const velocity = info.velocity.x;
+  // Auto-advance
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goTo(current + 1, 1);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [current]);
 
-    if (offset < -swipeThreshold || velocity < -swipeVelocity) {
-      if (currentIndex < maxIndex) {
-        setCurrentIndex(currentIndex + 1);
-      } else {
-        setCurrentIndex(0);
-      }
-    } else if (offset > swipeThreshold || velocity > swipeVelocity) {
-      if (currentIndex > 0) {
-        setCurrentIndex(currentIndex - 1);
-      } else {
-        setCurrentIndex(maxIndex);
-      }
-    }
+  const testimonial = TESTIMONIALS[current];
+
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 80 : -80,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -80 : 80,
+      opacity: 0,
+    }),
   };
-
-  const cardWidth = (containerWidth - (visibleCount - 1) * gap) / visibleCount;
-  const slideOffset = -currentIndex * (cardWidth + gap);
 
   return (
-    <section id="testimonials" className="w-full py-20 px-6 md:px-12 bg-zinc-950/40 relative z-20 overflow-hidden">
+    <section
+      id="testimonials"
+      className="w-full py-20 px-6 md:px-12 bg-zinc-950/40 relative z-20 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto">
-        
         {/* Section Header */}
-        <div className="text-left mb-16">
-          <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
-            Client Reviews
-          </span>
-          <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none">
-            Loved by Brands & Creators.
-          </h2>
-        </div>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-6">
+          <div>
+            <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
+              Client Reviews
+            </span>
+            <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none">
+              Loved by Brands<br className="hidden md:block" /> &amp; Creators.
+            </h2>
+          </div>
 
-        {/* Carousel Wrapper Container with Absolute Arrows */}
-        <div className="relative w-full">
-          {/* Left Arrow Button */}
-          {maxIndex > 0 && (
+          {/* Navigation arrows - visible on all screens beside header */}
+          <div className="flex items-center gap-3">
             <button
               onClick={handlePrev}
-              aria-label="Previous reviews"
-              className="absolute left-[-12px] md:left-[-24px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 hover:border-white/30 bg-zinc-900/85 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-lg backdrop-blur-sm"
+              aria-label="Previous review"
+              className="w-11 h-11 rounded-full border border-white/10 hover:border-white/30 bg-zinc-900/85 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-lg backdrop-blur-sm"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-          )}
-
-          {/* Right Arrow Button */}
-          {maxIndex > 0 && (
+            <span className="text-white/30 text-sm font-mono">
+              {String(current + 1).padStart(2, "0")}&nbsp;/&nbsp;{String(total).padStart(2, "0")}
+            </span>
             <button
               onClick={handleNext}
-              aria-label="Next reviews"
-              className="absolute right-[-12px] md:right-[-24px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 hover:border-white/30 bg-zinc-900/85 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-lg backdrop-blur-sm"
+              aria-label="Next review"
+              className="w-11 h-11 rounded-full border border-white/10 hover:border-white/30 bg-zinc-900/85 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-lg backdrop-blur-sm"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
-          )}
-
-          {/* Swipeable Carousel Track Container */}
-          <div ref={containerRef} className="w-full overflow-hidden relative cursor-grab active:cursor-grabbing py-4 select-none">
-            <motion.div
-              drag={maxIndex > 0 ? "x" : false}
-              dragConstraints={{
-                left: -maxIndex * (cardWidth + gap),
-                right: 0,
-              }}
-              dragElastic={0.15}
-              onDragEnd={handleDragEnd}
-              animate={{ x: slideOffset }}
-              transition={{
-                type: "spring",
-                stiffness: 160,
-                damping: 22,
-              }}
-              className="flex gap-8 w-full"
-              style={{ width: containerWidth ? "auto" : "100%" }}
-            >
-              {TESTIMONIALS.map((test, idx) => (
-                <div
-                  key={idx}
-                  style={{ width: cardWidth ? `${cardWidth}px` : "100%" }}
-                  className="flex-shrink-0 p-8 rounded-3xl border border-white/5 bg-zinc-950/30 flex flex-col justify-between text-left gap-8 shadow-xl hover:border-white/10 transition-colors duration-300"
-                >
-                  {/* Quote Block */}
-                  <div>
-                    {/* 5-Star Row */}
-                    <div className="flex gap-1 mb-6">
-                      {[...Array(5)].map((_, sIdx) => (
-                        <Star key={sIdx} className="w-4 h-4 fill-white/80 text-white/80" />
-                      ))}
-                    </div>
-                    
-                    <p className="text-white/80 text-sm md:text-base italic leading-relaxed">
-                      "{test.quote}"
-                    </p>
-                  </div>
-
-                  {/* Author Info block */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                    <img
-                      src={test.avatar}
-                      alt={`${test.name} avatar`}
-                      className="w-12 h-12 rounded-full object-cover border border-white/10 pointer-events-none"
-                    />
-                    <div className="text-left">
-                      <h4 className="text-white font-bold text-sm tracking-wide">
-                        {test.name}
-                      </h4>
-                      <p className="text-white/40 text-xs mt-0.5">
-                        {test.role}, <span className="text-white/70">{test.company}</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
           </div>
         </div>
 
-        {/* Pagination Dots */}
-        {maxIndex > 0 && (
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                aria-label={`Go to testimonial page ${idx + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentIndex === idx ? "bg-white w-6" : "bg-white/20 hover:bg-white/40 w-2"
-                }`}
-              />
-            ))}
-          </div>
-        )}
+        {/* Main Testimonial Card */}
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="relative overflow-hidden rounded-3xl border border-white/8 bg-zinc-900/60 backdrop-blur-sm"
+          style={{ minHeight: "420px" }}
+        >
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={testimonial.id}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="grid grid-cols-1 md:grid-cols-[2fr_3fr] h-full"
+            >
+              {/* Left: Product Image */}
+              <div className="relative overflow-hidden rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl rounded-br-none md:rounded-tr-none md:rounded-bl-3xl"
+                style={{ minHeight: "280px" }}>
+                <img
+                  src={testimonial.productImage}
+                  alt={testimonial.productLabel}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  draggable={false}
+                />
+                {/* Dark overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-zinc-900/40" />
 
+                {/* Product label badge */}
+                <div className="absolute bottom-4 left-4">
+                  <span
+                    className="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full backdrop-blur-md"
+                    style={{
+                      background: `${testimonial.accentColor}22`,
+                      border: `1px solid ${testimonial.accentColor}55`,
+                      color: testimonial.accentColor,
+                    }}
+                  >
+                    {testimonial.productLabel}
+                  </span>
+                </div>
+              </div>
+
+              {/* Right: Review Content */}
+              <div className="flex flex-col justify-between p-8 md:p-10 lg:p-14">
+                {/* Top: Stars + Quote */}
+                <div>
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5"
+                        style={{ fill: "#fbbf24", color: "#fbbf24" }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Big quote icon */}
+                  <Quote
+                    className="w-8 h-8 mb-4 opacity-20"
+                    style={{ color: testimonial.accentColor }}
+                  />
+
+                  {/* Review text */}
+                  <p className="text-white/85 text-lg md:text-xl lg:text-2xl leading-relaxed font-light tracking-tight">
+                    {testimonial.quote}
+                  </p>
+                </div>
+
+                {/* Bottom: Reviewer info */}
+                <div className="flex items-center gap-4 pt-8 mt-8 border-t border-white/8">
+                  {/* Initial avatar */}
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
+                    style={{ background: `${testimonial.accentColor}33`, border: `1.5px solid ${testimonial.accentColor}66` }}
+                  >
+                    <span style={{ color: testimonial.accentColor }}>
+                      {testimonial.initial}
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold text-base tracking-wide">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-white/40 text-xs mt-0.5 uppercase tracking-widest">
+                      {testimonial.role}
+                    </p>
+                  </div>
+
+                  {/* Google reviews badge */}
+                  <div className="ml-auto flex items-center gap-2 text-white/25 text-xs">
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 flex-shrink-0" fill="currentColor">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                    </svg>
+                    <span>Google Review</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {TESTIMONIALS.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => goTo(idx, idx > current ? 1 : -1)}
+              aria-label={`Go to review ${idx + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-400 cursor-pointer ${
+                current === idx
+                  ? "bg-white w-8"
+                  : "bg-white/20 hover:bg-white/40 w-2"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 });
 
 Testimonials.displayName = "Testimonials";
-
