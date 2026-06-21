@@ -126,18 +126,18 @@ export const Hero: React.FC = () => {
           {/* Stat Row */}
           <motion.div 
             variants={itemVariants}
-            className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 border-t border-white/10 max-w-xl"
+            className="grid grid-cols-[auto_auto_auto] justify-between gap-3 sm:gap-6 pt-8 border-t border-white/10 max-w-xl"
           >
             <div>
-              <h4 className="text-white font-serif italic text-2xl sm:text-3xl md:text-4xl font-normal">10k+</h4>
+              <h4 className="text-white font-serif italic text-3xl md:text-4xl font-normal">10k+</h4>
               <p className="text-white/40 text-[10px] font-medium tracking-wide mt-2">Order Capacity</p>
             </div>
             <div>
-              <h4 className="text-white font-serif italic text-xl sm:text-2xl md:text-4xl font-normal whitespace-nowrap">Pan India</h4>
+              <h4 className="text-white font-serif italic text-2xl md:text-4xl font-normal whitespace-nowrap">Pan India</h4>
               <p className="text-white/40 text-[10px] font-medium tracking-wide mt-2">Direct Delivery</p>
             </div>
             <div>
-              <h4 className="text-white font-serif italic text-2xl sm:text-3xl md:text-4xl font-normal">Free</h4>
+              <h4 className="text-white font-serif italic text-3xl md:text-4xl font-normal">Free</h4>
               <p className="text-white/40 text-[10px] font-medium tracking-wide mt-2">Design Assistance</p>
             </div>
           </motion.div>
