@@ -16,7 +16,7 @@ const items: GalleryItem[] = [
   {
     id: "work-1",
     title: "Premium Employee Onboarding Kit",
-    client: "Prospectoo",
+    client: "",
     category: "Corporate Merchandise",
     image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
     video: "/IMG_7285.MP4",
@@ -24,26 +24,26 @@ const items: GalleryItem[] = [
   },
   {
     id: "work-2",
-    title: "Oversized Streetwear Merch Lineup",
-    client: "Whoopers Gaming",
-    category: "Creator Merchandise",
+    title: "EVENT MERCHANDISE FOR PIER POP",
+    client: "THE BALLARD PIER",
+    category: "Event Merchandise",
     image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
     video: "/custom.MP4",
     gridClass: "md:col-span-4 md:row-span-2 h-[500px] md:h-[700px]",
   },
   {
     id: "work-3",
-    title: "Rigid Brand PR Boxes & Custom Tees",
-    client: "Raaviera Hotels",
+    title: "BULK CORPORATE DIARIES",
+    client: "L&T VYOMA",
     category: "Brand Collaborations",
     image: "/recent/raaviera.jpeg",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
   },
   {
     id: "work-4",
-    title: "Embroidered Custom Satin Bomber Line",
-    client: "Dribblers Football Club",
-    category: "Outerwear & Apparel",
+    title: "MERCH MADE FOR STARTUPS",
+    client: "PROSPECTOO",
+    category: "Corporate Merchandise",
     image: "/recent/dribblers.jpeg",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
   },
@@ -106,9 +106,11 @@ const RecentWorkCard: React.FC<{
         
         {/* Title and Client */}
         <div className="text-left">
-          <span className="text-[10px] uppercase tracking-widest font-semibold text-white/50 block mb-1">
-            Client: {item.client}
-          </span>
+          {item.client && (
+            <span className="text-[10px] uppercase tracking-widest font-semibold text-white/50 block mb-1">
+              Client: {item.client}
+            </span>
+          )}
           <h3 className="text-white font-display text-2xl md:text-3xl uppercase leading-none tracking-wide">
             {item.title}
           </h3>
@@ -120,7 +122,7 @@ const RecentWorkCard: React.FC<{
           className="flex items-center gap-2 self-start py-2.5 px-5 rounded-full bg-white hover:bg-zinc-100 text-black text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg"
         >
           <MessageSquare className="w-3.5 h-3.5 fill-black" />
-          <span>Enquire Similar Mockup</span>
+          <span>Explore Similar Merch</span>
         </button>
 
       </div>
@@ -149,7 +151,7 @@ export const RecentWork: React.FC = React.memo(() => {
             </h2>
           </div>
           <p className="text-white/60 text-sm md:text-base max-w-sm font-medium">
-            See real products and premium merchandise custom manufactured and distributed to our B2B partners, startups, and gaming guilds.
+            MERCH CRAFTED FOR CLIENTS
           </p>
         </div>
 
