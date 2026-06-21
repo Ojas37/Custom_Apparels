@@ -19,7 +19,7 @@ const items: GalleryItem[] = [
     client: "Prospectoo",
     category: "Corporate Merchandise",
     image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
-    video: "/video-landscape.mp4",
+    video: "/IMG_7285.MP4",
     gridClass: "md:col-span-8 md:row-span-1 h-[350px] md:h-[450px]",
   },
   {
