@@ -42,7 +42,7 @@ const items: GalleryItem[] = [
   {
     id: "work-4",
     title: "MERCH MADE FOR STARTUPS",
-    client: "",
+    client: "PROSPECTOO",
     category: "Corporate Merchandise",
     image: "/recent/dribblers.jpeg",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
