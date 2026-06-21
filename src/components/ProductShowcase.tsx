@@ -9,6 +9,8 @@ interface ShowcaseItem {
   image: string;
   description: string;
   color: string;
+  bgOverride?: string;
+  padImage?: boolean;
 }
 
 const items: ShowcaseItem[] = [
@@ -51,6 +53,8 @@ const items: ShowcaseItem[] = [
     image: "/products/5.png",
     description: "Versatile heavy fleece hoodies with high-quality metal zippers and kangaroo pockets.",
     color: "",
+    bgOverride: "#b9b6b7",
+    padImage: true,
   },
   {
     id: "sweatshirt",
@@ -75,6 +79,8 @@ const items: ShowcaseItem[] = [
     image: "/products/8.png",
     description: "Heavy-duty eco-friendly canvas tote bags with cross-stitched handles and screen-printed logos.",
     color: "",
+    bgOverride: "#b3b0b1",
+    padImage: true,
   },
   {
     id: "apron",
@@ -83,6 +89,8 @@ const items: ShowcaseItem[] = [
     image: "/products/9.png",
     description: "Durable canvas utility aprons with adjustable straps and front pockets for cafes and studios.",
     color: "",
+    bgOverride: "#adaaab",
+    padImage: true,
   },
   {
     id: "welcome-kit",
@@ -99,6 +107,8 @@ const items: ShowcaseItem[] = [
     image: "/products/11.png",
     description: "Impact-resistant matte and glossy phone covers customized with high-res brand artwork.",
     color: "",
+    bgOverride: "#cbcbcb",
+    padImage: true,
   },
   {
     id: "pr-box",
@@ -151,14 +161,19 @@ const ProductCard: React.FC<{
       </div>
 
       {/* Product Image Area */}
-      <div className="aspect-square w-full relative overflow-hidden bg-[#CBCBCB]">
+      <div 
+        style={item.bgOverride ? { backgroundColor: item.bgOverride } : undefined}
+        className="aspect-square w-full relative overflow-hidden bg-zinc-950"
+      >
         {/* Background radial glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:scale-110 transition-transform duration-500 z-10" />
         
         <img
           src={item.image}
           alt={item.name}
-          className="w-full h-full object-contain p-3 sm:p-5 group-hover:scale-105 transition-transform duration-500 ease-carousel origin-center"
+          className={`w-full h-full group-hover:scale-105 transition-transform duration-500 ease-carousel origin-center ${
+            item.padImage ? "p-6 object-contain" : "object-cover"
+          }`}
         />
       </div>
 
