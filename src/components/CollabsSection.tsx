@@ -46,7 +46,7 @@ const springTransition = {
 
 const handleWhatsAppClick = (collabTitle: string) => {
   const message = encodeURIComponent(`Hi! I am looking to build a premium collection similar to the "${collabTitle}" collaboration.`);
-  window.open(`https://wa.me/917420852608?text=${message}`, "_blank");
+  window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
 };
 
 export const CollabsSection: React.FC = React.memo(() => {

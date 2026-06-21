@@ -4,7 +4,7 @@ import { MessageSquare } from "lucide-react";
 export const Navbar: React.FC = React.memo(() => {
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hi! I'd like to make an enquiry for custom merchandise for my brand.");
-    window.open(`https://wa.me/917021012952?text=${message}`, "_blank");
+    window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
   };
 
   return (

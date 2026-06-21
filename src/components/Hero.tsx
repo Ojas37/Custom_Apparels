@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hi! I'd like to get a free mockup for custom apparel. Can you help me with design requirements?");
-    window.open(`https://wa.me/917021012952?text=${message}`, "_blank");
+    window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
   };
 
   const handleExploreClick = () => {

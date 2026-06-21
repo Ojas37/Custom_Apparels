@@ -191,7 +191,7 @@ export const CarouselSection: React.FC = React.memo(() => {
   const handleWhatsAppEnquiry = () => {
     const currentProduct = IMAGES[activeIndex];
     const message = encodeURIComponent(`Hi! I'm interested in custom ${currentProduct.name} and would like to get a quote and mockup.`);
-    window.open(`https://wa.me/917021012952?text=${message}`, "_blank");
+    window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
   };
 
   // ── Touch handlers ───────────────────────────────────────────────
