@@ -23,7 +23,7 @@ export const Navbar: React.FC = React.memo(() => {
         <a href="#about" className="hover:text-white transition-colors duration-200">About Us</a>
         <a href="#carousel-showcase" className="hover:text-white transition-colors duration-200">Products</a>
         <a href="#products" className="hover:text-white transition-colors duration-200">Catalog</a>
-        <a href="#collabs" className="hover:text-white transition-colors duration-200">Clients</a>
+        <a href="#recent-work" className="hover:text-white transition-colors duration-200">Clients</a>
       </div>
 
       {/* Top Right Quick WhatsApp Link */}
