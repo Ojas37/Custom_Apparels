@@ -155,10 +155,7 @@ const ProductCard: React.FC<{
       whileHover={{ y: -6 }}
       className="group flex flex-col rounded-2xl sm:rounded-3xl border border-white/5 bg-zinc-950/50 hover:bg-zinc-950 hover:border-white/10 transition-all duration-300 overflow-hidden shadow-2xl relative"
     >
-      {/* Product Category Pill */}
-      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-30 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[8px] sm:text-[10px] uppercase font-bold bg-black/60 border border-white/10 text-white/80">
-        {item.category}
-      </div>
+
 
       {/* Product Image Area */}
       <div 
