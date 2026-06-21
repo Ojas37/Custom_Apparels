@@ -95,11 +95,11 @@ const items: ShowcaseItem[] = [
     padImage: true,
   },
   {
-    id: "welcome-kit",
-    name: "Other Accessories",
+    id: "pr-box",
+    name: "Merch Kit",
     category: "Corporate Packages",
-    image: "/products/10.png",
-    description: "Curated kits featuring personalized bottles, diaries, keychains, and lanyards for new hires.",
+    image: "/products/12.png",
+    description: "Premium rigid gift packages containing luxury custom items for clients and VIP partners.",
     color: "",
   },
   {
@@ -113,11 +113,11 @@ const items: ShowcaseItem[] = [
     padImage: true,
   },
   {
-    id: "pr-box",
-    name: "Merch Kit",
+    id: "welcome-kit",
+    name: "Other Accessories",
     category: "Corporate Packages",
-    image: "/products/12.png",
-    description: "Premium rigid gift packages containing luxury custom items for clients and VIP partners.",
+    image: "/products/10.png",
+    description: "Curated kits featuring personalized bottles, diaries, keychains, and lanyards for new hires.",
     color: "",
   },
 ];
