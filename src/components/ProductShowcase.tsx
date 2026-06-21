@@ -151,14 +151,14 @@ const ProductCard: React.FC<{
       </div>
 
       {/* Product Image Area */}
-      <div className="aspect-square w-full relative overflow-hidden bg-zinc-950">
+      <div className="aspect-square w-full relative overflow-hidden bg-[#CBCBCB]">
         {/* Background radial glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)] group-hover:scale-110 transition-transform duration-500 z-10" />
         
         <img
           src={item.image}
           alt={item.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-carousel origin-center"
+          className="w-full h-full object-contain p-3 sm:p-5 group-hover:scale-105 transition-transform duration-500 ease-carousel origin-center"
         />
       </div>
 
