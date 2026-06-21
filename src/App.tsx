@@ -11,6 +11,7 @@ import { HowItWorks } from "./components/HowItWorks";
 import { RecentWork } from "./components/RecentWork";
 
 import { Testimonials } from "./components/Testimonials";
+import { FAQ } from "./components/FAQ";
 import { FooterCTA } from "./components/FooterCTA";
 
 const App: React.FC = () => {
@@ -64,7 +65,10 @@ const App: React.FC = () => {
       {/* 8. Testimonials */}
       <Testimonials />
 
-      {/* 9. Final CTA Footer Section */}
+      {/* 9. FAQ */}
+      <FAQ />
+
+      {/* 10. Final CTA Footer Section */}
       <FooterCTA />
 
       {/* Floating Sticky Contact Badge */}
