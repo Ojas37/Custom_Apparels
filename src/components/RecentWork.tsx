@@ -27,7 +27,7 @@ const items: GalleryItem[] = [
     client: "Whoopers Gaming",
     category: "Creator Merchandise",
     image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
-    video: "/whoopers.mp4",
+    video: "/custom.mp4",
     gridClass: "md:col-span-4 md:row-span-2 h-[500px] md:h-[700px]",
   },
   {
