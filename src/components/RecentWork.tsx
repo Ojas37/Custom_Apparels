@@ -36,7 +36,7 @@ const items: GalleryItem[] = [
     title: "Rigid Brand PR Boxes & Custom Tees",
     client: "Raaviera Hotels",
     category: "Brand Collaborations",
-    image: "/recent/raaviera.png",
+    image: "/recent/raaviera.jpeg",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
   },
   {
@@ -44,7 +44,7 @@ const items: GalleryItem[] = [
     title: "Embroidered Custom Satin Bomber Line",
     client: "Dribblers Football Club",
     category: "Outerwear & Apparel",
-    image: "/recent/dribblers.png",
+    image: "/recent/dribblers.jpeg",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
   },
 ];
