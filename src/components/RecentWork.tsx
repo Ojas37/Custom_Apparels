@@ -8,6 +8,7 @@ interface GalleryItem {
   client: string;
   category: string;
   image: string;
+  video?: string;
   gridClass: string;
 }
 
@@ -26,6 +27,7 @@ const items: GalleryItem[] = [
     client: "Whoopers Gaming",
     category: "Creator Merchandise",
     image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
+    video: "/whoopers.mp4",
     gridClass: "md:col-span-4 md:row-span-2 h-[500px] md:h-[700px]",
   },
   {
@@ -70,13 +72,25 @@ const RecentWorkCard: React.FC<{
       transition={{ type: "spring", stiffness: 75, damping: 15 }}
       className={`group relative rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 shadow-2xl flex flex-col ${item.gridClass}`}
     >
-      {/* Image Layer with Parallax */}
-      <motion.img
-        src={item.image}
-        alt={item.title}
-        style={{ y, scale: 1.2 }}
-        className="absolute inset-0 w-full h-full object-cover origin-center z-0"
-      />
+      {/* Video or Image Layer with Parallax */}
+      {item.video ? (
+        <video
+          src={item.video}
+          poster={item.image}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover origin-center z-0"
+        />
+      ) : (
+        <motion.img
+          src={item.image}
+          alt={item.title}
+          style={{ y, scale: 1.2 }}
+          className="absolute inset-0 w-full h-full object-cover origin-center z-0"
+        />
+      )}
 
       {/* Gradient dark mask for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10 opacity-75 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
