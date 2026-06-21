@@ -16,7 +16,7 @@ interface ShowcaseItem {
 const items: ShowcaseItem[] = [
   {
     id: "regular-tee",
-    name: "Classic Crewneck Tees",
+    name: "Round Neck T-shirt",
     category: "Apparel",
     image: "/products/1.png",
     description: "Premium 180 GSM combed cotton crewnecks, perfect for everyday team wear.",
@@ -24,7 +24,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "oversized-tee",
-    name: "Oversized Streetwear Tees",
+    name: "Oversized T-shirt",
     category: "Apparel",
     image: "/products/2.png",
     description: "Heavy-weight 240+ GSM cotton boxy fit with dropped shoulders for premium brand merch.",
@@ -32,7 +32,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "polo-tee",
-    name: "Classic Polo Shirts",
+    name: "Polo T-shirt",
     category: "Apparel",
     image: "/products/3.png",
     description: "Pique knit double-stitched polo collared shirts with high-density brand embroidery.",
@@ -40,7 +40,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "pullover-hoodie",
-    name: "Custom Pullover Hoodies",
+    name: "Pullover Hoodie",
     category: "Apparel",
     image: "/products/4.png",
     description: "Super soft 320+ GSM brushed fleece pullover hoodies with double-lined hoods.",
@@ -50,7 +50,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "zip-hoodie",
-    name: "Premium Zip-Up Hoodies",
+    name: "Zipper Hoodie",
     category: "Apparel",
     image: "/products/5.png",
     description: "Versatile heavy fleece hoodies with high-quality metal zippers and kangaroo pockets.",
@@ -60,7 +60,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "sweatshirt",
-    name: "Crewneck Sweatshirts",
+    name: "Sweatshirt",
     category: "Apparel",
     image: "/products/6.png",
     description: "Comfortable and thick fleece sweatshirts, rib-knit collar and cuffs for a clean look.",
@@ -68,7 +68,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "cap",
-    name: "Structured Baseball Caps",
+    name: "Caps",
     category: "Accessories",
     image: "/products/7.png",
     description: "Premium structured 6-panel caps with adjustable metallic buckle and customized front stitching.",
@@ -76,7 +76,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "tote-bag",
-    name: "Canvas Tote Bags",
+    name: "Tote Bag",
     category: "Accessories",
     image: "/products/8.png",
     description: "Heavy-duty eco-friendly canvas tote bags with cross-stitched handles and screen-printed logos.",
@@ -86,7 +86,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "apron",
-    name: "Custom Work Aprons",
+    name: "Apron",
     category: "Accessories",
     image: "/products/9.png",
     description: "Durable canvas utility aprons with adjustable straps and front pockets for cafes and studios.",
@@ -96,7 +96,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "welcome-kit",
-    name: "Onboarding Welcome Sets",
+    name: "Other Accessories",
     category: "Corporate Packages",
     image: "/products/10.png",
     description: "Curated kits featuring personalized bottles, diaries, keychains, and lanyards for new hires.",
@@ -104,7 +104,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "phone-case",
-    name: "Custom Brand Phone Cases",
+    name: "Phone Case",
     category: "Accessories",
     image: "/products/11.png",
     description: "Impact-resistant matte and glossy phone covers customized with high-res brand artwork.",
@@ -114,7 +114,7 @@ const items: ShowcaseItem[] = [
   },
   {
     id: "pr-box",
-    name: "Executive Brand Gift Boxes",
+    name: "Merch Kit",
     category: "Corporate Packages",
     image: "/products/12.png",
     description: "Premium rigid gift packages containing luxury custom items for clients and VIP partners.",
