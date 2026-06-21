@@ -43,10 +43,10 @@ export const Hero: React.FC = () => {
   };
 
   const handleExploreClick = () => {
-    const element = document.getElementById("carousel-showcase");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    window.open(
+      "https://drive.google.com/file/d/1vJjvAqlqpE79xWlpgoIJJgsQBNpHe5rc/view?usp=sharing",
+      "_blank"
+    );
   };
 
   return (
@@ -95,15 +95,7 @@ export const Hero: React.FC = () => {
           {/* Subheadline */}
           <motion.p 
             variants={itemVariants}
-            className="text-white/90 text-sm md:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl mb-2"
-          >
-            Custom apparel, corporate merchandise, creator merch and branded products made exactly the way you imagine.
-          </motion.p>
-
-          {/* Supporting Line */}
-          <motion.p 
-            variants={itemVariants}
-            className="text-white/50 text-xs md:text-sm leading-relaxed max-w-xl mb-8"
+            className="text-white/90 text-sm md:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl mb-8"
           >
             From a single custom piece to thousands of branded merchandise units, we handle everything from design to delivery.
           </motion.p>

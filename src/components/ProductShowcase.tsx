@@ -66,7 +66,7 @@ const items: ShowcaseItem[] = [
     category: "Corporate Packages",
     image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
     description: "Curated welcome onboarding kits containing hoodies, diaries, and bottles.",
-    color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
+    color: "bg-zinc-800/20 border-zinc-700/20 text-white/70",
   },
   {
     id: "pr-box",
@@ -74,7 +74,7 @@ const items: ShowcaseItem[] = [
     category: "Corporate Packages",
     image: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop",
     description: "Custom printed rigid boxes, personalized sleeve tags, and fillers.",
-    color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
+    color: "bg-zinc-800/20 border-zinc-700/20 text-white/70",
   },
   {
     id: "stickers",
@@ -82,7 +82,7 @@ const items: ShowcaseItem[] = [
     category: "Creator Merch",
     image: "/products/stickers.png",
     description: "Die-cut waterproof vinyl sticker packs, matte and gloss finishes.",
-    color: "bg-zinc-800/20 border-zinc-700/20 text-emerald-400",
+    color: "bg-zinc-800/20 border-zinc-700/20 text-white/70",
   },
 ];
 
@@ -165,9 +165,9 @@ const ProductCard: React.FC<{
         {/* WhatsApp Enquiry Quick Link */}
         <button
           onClick={() => onEnquire(item.name)}
-          className="flex items-center justify-center gap-2 py-3 px-5 rounded-xl border border-emerald-500/20 hover:border-emerald-500/50 bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-400 text-xs uppercase font-bold tracking-wider transition-all duration-300 cursor-pointer"
+          className="flex items-center justify-center gap-2 py-3 px-5 rounded-xl border border-white/10 hover:border-white/25 bg-white/[0.03] hover:bg-white/[0.07] text-white/70 hover:text-white text-xs uppercase font-bold tracking-wider transition-all duration-300 cursor-pointer"
         >
-          <MessageSquare className="w-3.5 h-3.5 fill-emerald-400/20" />
+          <MessageSquare className="w-3.5 h-3.5 fill-white/20" />
           <span>Enquire for {item.name}</span>
         </button>
       </div>
@@ -188,7 +188,7 @@ export const ProductShowcase: React.FC = React.memo(() => {
         {/* Section Header */}
         <div className="text-left mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
+            <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
               Custom Merch Catalog
             </span>
             <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none">

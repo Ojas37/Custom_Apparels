@@ -82,7 +82,7 @@ const RecentWorkCard: React.FC<{
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10 opacity-75 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
 
       {/* Category tag */}
-      <div className="absolute top-6 left-6 z-20 px-3 py-1 rounded-full text-[10px] uppercase font-extrabold bg-zinc-950/90 border border-white/10 text-emerald-400 shadow-md">
+      <div className="absolute top-6 left-6 z-20 px-3 py-1 rounded-full text-[10px] uppercase font-extrabold bg-zinc-950/90 border border-white/10 text-white/70 shadow-md">
         {item.category}
       </div>
 
@@ -102,9 +102,9 @@ const RecentWorkCard: React.FC<{
         {/* WhatsApp Trigger */}
         <button
           onClick={() => onEnquire(item.title)}
-          className="flex items-center gap-2 self-start py-2.5 px-5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg shadow-emerald-500/20"
+          className="flex items-center gap-2 self-start py-2.5 px-5 rounded-full bg-white hover:bg-zinc-100 text-black text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg"
         >
-          <MessageSquare className="w-3.5 h-3.5 fill-white" />
+          <MessageSquare className="w-3.5 h-3.5 fill-black" />
           <span>Enquire Similar Mockup</span>
         </button>
 
@@ -126,7 +126,7 @@ export const RecentWork: React.FC = React.memo(() => {
         {/* Section Header */}
         <div className="text-left mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
+            <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
               Case Studies & Deliveries
             </span>
             <h2 className="font-display text-5xl md:text-7xl text-white uppercase tracking-tight leading-none">

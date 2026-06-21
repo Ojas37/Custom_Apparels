@@ -10,36 +10,11 @@ interface Step {
 }
 
 const steps: Step[] = [
-  {
-    step: "01",
-    title: "Share Your Idea",
-    desc: "Send us your branding guidelines, custom logo, sketches, or ideas. Select your products, colors, and estimated quantities.",
-    icon: <Lightbulb className="w-5 h-5 text-emerald-400" />,
-  },
-  {
-    step: "02",
-    title: "Receive Free Mockup",
-    desc: "Our design team creates high-fidelity digital mockups showing logo positions, sizes, and print rendering within 24 hours.",
-    icon: <Eye className="w-5 h-5 text-emerald-400" />,
-  },
-  {
-    step: "03",
-    title: "Approve Design",
-    desc: "Review colors, request modifications, and approve the final digital sample sheets to lock in printing templates.",
-    icon: <CheckCircle className="w-5 h-5 text-emerald-400" />,
-  },
-  {
-    step: "04",
-    title: "Production Begins",
-    desc: "We print, embroider, stitch, pack, and run rigorous quality checks on every item inside our production facilities.",
-    icon: <Hammer className="w-5 h-5 text-emerald-400" />,
-  },
-  {
-    step: "05",
-    title: "Delivered to Your Doorstep",
-    desc: "Premium items are packed and shipped directly to your corporate HQ, event venue, or distributed to employees' homes.",
-    icon: <Truck className="w-5 h-5 text-emerald-400" />,
-  },
+  { step: "01", title: "Share Your Idea",           desc: "Send us your branding guidelines, custom logo, sketches, or ideas. Select your products, colors, and estimated quantities.",                                                                            icon: <Lightbulb    className="w-5 h-5 text-white/80" /> },
+  { step: "02", title: "Receive Free Mockup",        desc: "Our design team creates high-fidelity digital mockups showing logo positions, sizes, and print rendering within 24 hours.",                                                                     icon: <Eye          className="w-5 h-5 text-white/80" /> },
+  { step: "03", title: "Approve Design",             desc: "Review colors, request modifications, and approve the final digital sample sheets to lock in printing templates.",                                                                              icon: <CheckCircle  className="w-5 h-5 text-white/80" /> },
+  { step: "04", title: "Production Begins",          desc: "We print, embroider, stitch, pack, and run rigorous quality checks on every item inside our production facilities.",                                                                              icon: <Hammer       className="w-5 h-5 text-white/80" /> },
+  { step: "05", title: "Delivered to Your Doorstep", desc: "Premium items are packed and shipped directly to your corporate HQ, event venue, or distributed to employees\u2019 homes.", icon: <Truck        className="w-5 h-5 text-white/80" /> },
 ];
 
 export const HowItWorks: React.FC = React.memo(() => {
@@ -57,7 +32,7 @@ export const HowItWorks: React.FC = React.memo(() => {
         
         {/* Section Header */}
         <div className="text-left mb-20">
-          <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
+          <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
             Simple Process
           </span>
           <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none mb-4">
@@ -80,7 +55,7 @@ export const HowItWorks: React.FC = React.memo(() => {
               scaleY: scrollYProgress,
               transformOrigin: "top",
             }}
-            className="absolute top-4 bottom-4 left-4 md:left-1/2 w-[2px] bg-emerald-500 -translate-x-1/2 z-0"
+            className="absolute top-4 bottom-4 left-4 md:left-1/2 w-[2px] bg-white/50 -translate-x-1/2 z-0"
           />
 
           {/* Steps List */}
@@ -94,8 +69,8 @@ export const HowItWorks: React.FC = React.memo(() => {
                   className="w-full flex flex-col md:flex-row items-stretch justify-start md:justify-between relative pl-10 md:pl-0"
                 >
                   {/* Step Bullet Dot */}
-                  <div className="absolute left-4 md:left-1/2 top-4 w-6 h-6 rounded-full bg-zinc-950 border-2 border-emerald-500 -translate-x-1/2 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                    <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <div className="absolute left-4 md:left-1/2 top-4 w-6 h-6 rounded-full bg-zinc-950 border-2 border-white/40 -translate-x-1/2 flex items-center justify-center z-10 shadow-[0_0_12px_rgba(255,255,255,0.1)]">
+                    <div className="w-2 h-2 rounded-full bg-white/70" />
                   </div>
 
                   {/* Left Column (Desktop) */}
@@ -111,7 +86,7 @@ export const HowItWorks: React.FC = React.memo(() => {
                         <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center border border-white/5 mb-2">
                           {step.icon}
                         </div>
-                        <span className="text-[10px] tracking-[0.2em] font-extrabold text-emerald-400 uppercase">
+                        <span className="text-[10px] tracking-[0.2em] font-extrabold text-zinc-400 uppercase">
                           Step {step.step}
                         </span>
                         <h3 className="text-white font-bold text-xl uppercase tracking-wider">
@@ -140,7 +115,7 @@ export const HowItWorks: React.FC = React.memo(() => {
                         <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center border border-white/5 mb-2">
                           {step.icon}
                         </div>
-                        <span className="text-[10px] tracking-[0.2em] font-extrabold text-emerald-400 uppercase">
+                        <span className="text-[10px] tracking-[0.2em] font-extrabold text-zinc-400 uppercase">
                           Step {step.step}
                         </span>
                         <h3 className="text-white font-bold text-xl uppercase tracking-wider">

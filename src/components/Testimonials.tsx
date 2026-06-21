@@ -47,7 +47,7 @@ export const Testimonials: React.FC = React.memo(() => {
         
         {/* Section Header */}
         <div className="text-left mb-16">
-          <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
+          <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
             Client Reviews
           </span>
           <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none mb-4">
@@ -71,7 +71,7 @@ export const Testimonials: React.FC = React.memo(() => {
                 {/* 5-Star Row */}
                 <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, sIdx) => (
-                    <Star key={sIdx} className="w-4 h-4 fill-emerald-400 text-emerald-400" />
+                    <Star key={sIdx} className="w-4 h-4 fill-white/80 text-white/80" />
                   ))}
                 </div>
                 
@@ -92,7 +92,7 @@ export const Testimonials: React.FC = React.memo(() => {
                     {test.name}
                   </h4>
                   <p className="text-white/40 text-xs mt-0.5">
-                    {test.role}, <span className="text-emerald-400">{test.company}</span>
+                    {test.role}, <span className="text-white/70">{test.company}</span>
                   </p>
                 </div>
               </div>

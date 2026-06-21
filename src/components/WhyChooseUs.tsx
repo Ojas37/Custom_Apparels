@@ -12,32 +12,32 @@ const cards: CardItem[] = [
   {
     title: "No Minimum Order Qty",
     desc: "Order from a single custom piece to test print quality, or scale up to thousands of units seamlessly.",
-    icon: <Layers className="w-6 h-6 text-emerald-400" />,
+    icon: <Layers className="w-6 h-6 text-white/80" />,
   },
   {
     title: "Free Mockup & Design",
     desc: "Get expert design assistance and high-fidelity photorealistic mockups within 24 hours.",
-    icon: <Palette className="w-6 h-6 text-emerald-400" />,
+    icon: <Palette className="w-6 h-6 text-white/80" />,
   },
   {
     title: "Pan India Delivery",
     desc: "Reliable door-to-door distribution to offices, event venues, or individual employees' homes across India.",
-    icon: <Truck className="w-6 h-6 text-emerald-400" />,
+    icon: <Truck className="w-6 h-6 text-white/80" />,
   },
   {
     title: "Bulk Corporate Orders",
     desc: "End-to-end custom merchandise execution for onboarding kits, brand events, and promotional campaigns.",
-    icon: <Building2 className="w-6 h-6 text-emerald-400" />,
+    icon: <Building2 className="w-6 h-6 text-white/80" />,
   },
   {
     title: "Premium Print Quality",
     desc: "State-of-the-art direct-to-garment (DTG), screen printing, premium DTF, and high-density embroidery.",
-    icon: <CheckCircle className="w-6 h-6 text-emerald-400" />,
+    icon: <CheckCircle className="w-6 h-6 text-white/80" />,
   },
   {
     title: "Fast Turnaround Time",
     desc: "Streamlined production and express logistics pipelines to meet your urgent event and launch deadlines.",
-    icon: <Zap className="w-6 h-6 text-emerald-400" />,
+    icon: <Zap className="w-6 h-6 text-white/80" />,
   },
 ];
 
@@ -45,9 +45,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
@@ -58,11 +56,7 @@ const itemVariants = {
     opacity: 1,
     scale: 1,
     rotate: 0,
-    transition: {
-      type: "spring",
-      stiffness: 75,
-      damping: 15,
-    },
+    transition: { type: "spring", stiffness: 75, damping: 15 },
   },
 } as const;
 
@@ -73,7 +67,7 @@ export const WhyChooseUs: React.FC = React.memo(() => {
 
         {/* Section Header */}
         <div className="text-left mb-16">
-          <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
+          <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
             Why Partner With Us
           </span>
           <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none mb-4">
@@ -97,17 +91,17 @@ export const WhyChooseUs: React.FC = React.memo(() => {
               key={idx}
               variants={itemVariants}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className="group p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 flex flex-col justify-between min-h-[200px] hover:border-emerald-500/20 shadow-lg"
+              className="group p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 flex flex-col justify-between min-h-[200px] hover:border-white/15 shadow-lg"
             >
               <div className="flex flex-col gap-4">
-                {/* Card Icon Header */}
-                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/[0.03] group-hover:bg-emerald-500/10 transition-colors duration-300">
+                {/* Card Icon */}
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/[0.03] group-hover:bg-white/[0.07] transition-colors duration-300">
                   {card.icon}
                 </div>
 
-                {/* Card Text Content */}
+                {/* Card Text */}
                 <div>
-                  <h3 className="text-white font-bold text-lg mb-2 group-hover:text-emerald-400 transition-colors duration-200">
+                  <h3 className="text-white font-bold text-lg mb-2">
                     {card.title}
                   </h3>
                   <p className="text-white/50 text-xs md:text-sm leading-relaxed">

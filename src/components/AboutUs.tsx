@@ -19,7 +19,7 @@ export const AboutUs: React.FC = React.memo(() => {
             transition={{ type: "spring", stiffness: 60, damping: 15 }}
             className="lg:col-span-5 text-left flex flex-col justify-center"
           >
-            <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
+            <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
               Craft & Vision
             </span>
             <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-[0.95] mb-6 font-extrabold">

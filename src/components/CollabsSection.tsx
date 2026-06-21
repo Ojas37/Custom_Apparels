@@ -56,7 +56,7 @@ export const CollabsSection: React.FC = React.memo(() => {
         
         {/* Section Header */}
         <div className="text-left mb-16">
-          <span className="text-emerald-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
+          <span className="text-zinc-400 text-xs font-semibold uppercase tracking-[0.25em] block mb-3">
             Premium Collaborations
           </span>
           <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none mb-4">
@@ -79,8 +79,8 @@ export const CollabsSection: React.FC = React.memo(() => {
             className="lg:col-span-4 bg-zinc-950/60 border border-white/5 rounded-3xl p-8 text-left flex flex-col justify-between min-h-[400px]"
           >
             <div className="flex flex-col gap-6">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5 text-emerald-400" />
+              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 text-white/70" />
               </div>
               <h3 className="text-white font-display text-2xl uppercase tracking-wider leading-tight">
                 Enterprise Grade Merchandise Execution
@@ -97,7 +97,7 @@ export const CollabsSection: React.FC = React.memo(() => {
               <button
                 onClick={() => handleWhatsAppClick("B2B Corporate Kits")}
                 aria-label="Enquire about B2B Corporate Kits via WhatsApp"
-                className="py-2.5 px-5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg"
+                className="py-2.5 px-5 rounded-full bg-white hover:bg-zinc-100 text-black text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg"
               >
                 Let's Connect
               </button>
@@ -122,7 +122,7 @@ export const CollabsSection: React.FC = React.memo(() => {
                     alt={collab.title}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-carousel"
                   />
-                  <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-zinc-950/80 text-[8px] font-bold text-emerald-400 uppercase tracking-widest border border-white/5">
+                  <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-zinc-950/80 text-[8px] font-bold text-white/70 uppercase tracking-widest border border-white/5">
                     {collab.badge}
                   </div>
                 </div>
@@ -130,7 +130,7 @@ export const CollabsSection: React.FC = React.memo(() => {
                 {/* Card Text details */}
                 <div className="flex-1 flex flex-col justify-between text-left gap-4">
                   <div>
-                    <span className="text-[10px] uppercase font-semibold text-emerald-400 tracking-wider">
+                    <span className="text-[10px] uppercase font-semibold text-zinc-400 tracking-wider">
                       {collab.project}
                     </span>
                     <h4 className="text-white font-bold text-xl uppercase tracking-wide mt-1">
@@ -145,7 +145,7 @@ export const CollabsSection: React.FC = React.memo(() => {
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                     {collab.features.map((feature, fIdx) => (
                       <div key={fIdx} className="flex items-center gap-1.5 text-white/70 text-[11px] font-medium">
-                        <Check className="w-3 h-3 text-emerald-400" />
+                        <Check className="w-3 h-3 text-white/60" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -157,7 +157,7 @@ export const CollabsSection: React.FC = React.memo(() => {
                   <button
                     onClick={() => handleWhatsAppClick(collab.title)}
                     aria-label={`Enquire about ${collab.title} project via WhatsApp`}
-                    className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-white/5 group-hover:bg-emerald-500 text-white rounded-full transition-all duration-300 hover:scale-110 cursor-pointer shadow-md group-hover:shadow-[0_4px_15px_rgba(16,185,129,0.3)] border border-white/10 group-hover:border-transparent"
+                    className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-white/5 group-hover:bg-white/15 text-white rounded-full transition-all duration-300 hover:scale-110 cursor-pointer shadow-md group-hover:shadow-[0_4px_15px_rgba(255,255,255,0.1)] border border-white/10 group-hover:border-white/20"
                   >
                     <MessageSquare className="w-4 h-4 md:w-5 md:h-5 fill-white/20 group-hover:fill-white" />
                   </button>
