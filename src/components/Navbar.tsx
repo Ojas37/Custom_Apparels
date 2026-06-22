@@ -56,9 +56,9 @@ export const Navbar: React.FC = React.memo(() => {
         {/* Right – Enquire Now */}
         <button
           onClick={handleWhatsAppClick}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 text-white text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shrink-0"
+          className="flex items-center gap-1 px-2.5 py-1 rounded-full border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 text-white text-[10px] font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shrink-0"
         >
-          <MessageSquare className="w-3 h-3 text-white" />
+          <MessageSquare className="w-2.5 h-2.5 text-white" />
           <span>Enquire Now</span>
         </button>
       </div>
