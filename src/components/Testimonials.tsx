@@ -12,6 +12,7 @@ interface Testimonial {
   productLabel: string;
   initial: string;
   accentColor: string;
+  isException?: boolean;
 }
 
 const TESTIMONIALS: Testimonial[] = [
@@ -37,6 +38,7 @@ const TESTIMONIALS: Testimonial[] = [
     productLabel: "Custom Gift Box",
     initial: "H",
     accentColor: "#3a86ff",
+    isException: true,
   },
   {
     id: "t3",
@@ -202,10 +204,15 @@ export const Testimonials: React.FC = React.memo(() => {
               animate="center"
               exit="exit"
               transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="flex flex-col md:flex-row h-full"
+              className={testimonial.isException ? "grid grid-cols-1 md:grid-cols-[2fr_3fr] h-full" : "flex flex-col md:flex-row h-full"}
             >
               {/* Left: Product Image */}
-              <div className="relative aspect-[3/4] w-full h-auto md:w-auto md:h-full flex-shrink-0 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-r-none bg-zinc-950/60">
+              <div 
+                className={testimonial.isException 
+                  ? "relative overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-r-none bg-zinc-950/60"
+                  : "relative aspect-[3/4] w-full h-auto md:w-auto md:h-full flex-shrink-0 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-r-none bg-zinc-950/60"}
+                style={testimonial.isException ? { minHeight: "340px" } : {}}
+              >
                 {/* Blurred duplicate background to fill space beautifully */}
                 <div
                   className="absolute inset-0 bg-cover bg-center filter blur-xl scale-110 opacity-30 select-none pointer-events-none"
@@ -223,7 +230,7 @@ export const Testimonials: React.FC = React.memo(() => {
               </div>
 
               {/* Right: Review Content */}
-              <div className="flex flex-col justify-between p-8 md:p-10 lg:p-14 flex-grow">
+              <div className={testimonial.isException ? "flex flex-col justify-between p-8 md:p-10 lg:p-14" : "flex flex-col justify-between p-8 md:p-10 lg:p-14 flex-grow"}>
                 {/* Top: Stars + Quote */}
                 <div>
                   {/* Stars */}
