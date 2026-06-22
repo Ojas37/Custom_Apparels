@@ -145,10 +145,10 @@ export const Hero: React.FC = () => {
       <div className="w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pt-4 border-t border-white/10 z-20 mt-4 lg:mt-0">
         {/* Bottom Left Label */}
         <div className="max-w-xs text-left">
-          <span className="text-white/40 text-[9px] uppercase tracking-[0.25em] font-bold block mb-0.5">
+          <span className="text-white/40 text-[11px] sm:text-[9px] uppercase tracking-[0.25em] font-bold block mb-0.5">
             Top 1% Choice
           </span>
-          <p className="text-white/70 text-[11px] leading-snug">
+          <p className="text-white/70 text-[13px] sm:text-[11px] leading-snug">
             Trusted by startups, creators, institutions and brands across India.
           </p>
         </div>
