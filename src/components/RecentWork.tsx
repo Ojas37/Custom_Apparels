@@ -6,7 +6,6 @@ interface GalleryItem {
   id: string;
   title: string;
   client: string;
-  category: string;
   image: string;
   video?: string;
   gridClass: string;
@@ -15,9 +14,8 @@ interface GalleryItem {
 const items: GalleryItem[] = [
   {
     id: "work-1",
-    title: "Premium Employee Onboarding Kit",
+    title: "MERCH CRAFTED FOR CLIENTS",
     client: "",
-    category: "Corporate Merchandise",
     image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
     video: "/IMG_7285.MP4",
     gridClass: "md:col-span-8 md:row-span-1 h-[350px] md:h-[450px]",
@@ -26,7 +24,6 @@ const items: GalleryItem[] = [
     id: "work-2",
     title: "EVENT MERCHANDISE FOR PIER POP",
     client: "THE BALLARD PIER",
-    category: "Event Merchandise",
     image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
     video: "/custom.MP4",
     gridClass: "md:col-span-4 md:row-span-2 h-[500px] md:h-[700px]",
@@ -35,7 +32,6 @@ const items: GalleryItem[] = [
     id: "work-3",
     title: "BULK CORPORATE DIARIES",
     client: "L&T VYOMA",
-    category: "Brand Collaborations",
     image: "/recent/raaviera.jpeg",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
   },
@@ -43,7 +39,6 @@ const items: GalleryItem[] = [
     id: "work-4",
     title: "MERCH MADE FOR STARTUPS",
     client: "PROSPECTOO",
-    category: "Corporate Merchandise",
     image: "/recent/dribblers.jpeg",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
   },
@@ -96,10 +91,7 @@ const RecentWorkCard: React.FC<{
       {/* Gradient dark mask for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10 opacity-75 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
 
-      {/* Category tag */}
-      <div className="absolute top-6 left-6 z-20 px-3 py-1 rounded-full text-[10px] uppercase font-extrabold bg-zinc-950/90 border border-white/10 text-white/70 shadow-md">
-        {item.category}
-      </div>
+
 
       {/* Reveal Hover Details */}
       <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 z-20 flex flex-col justify-end gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

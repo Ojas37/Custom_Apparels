@@ -51,14 +51,14 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "t4",
-    name: "Smriti",
+    name: "Yashvi Mehta",
     role: "Custom Graphic Tees",
     rating: 5,
     quote:
-      "I checked a lot of different custom tshirt pages and most of them were very overpriced. But i came across Custom Apparels and really loved their quality and great pricing. I would highly recommend to give it a try for custom products",
+      "the quality of tshirts was very good and their delivery and service was on point",
     productImage: "/testimonials/rocking-idiots.jpeg",
     productLabel: "Custom Printed Tees",
-    initial: "S",
+    initial: "Y",
     accentColor: "#ff9f1c",
   },
 ];
@@ -181,18 +181,22 @@ export const Testimonials: React.FC = React.memo(() => {
               className="grid grid-cols-1 md:grid-cols-[2fr_3fr] h-full"
             >
               {/* Left: Product Image */}
-              <div className="relative overflow-hidden rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl rounded-br-none md:rounded-tr-none md:rounded-bl-3xl"
+              <div className="relative overflow-hidden rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl rounded-br-none md:rounded-tr-none md:rounded-bl-3xl bg-zinc-950/60"
                 style={{ minHeight: "280px" }}>
+                {/* Blurred duplicate background to fill space beautifully */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center filter blur-xl scale-110 opacity-30 select-none pointer-events-none"
+                  style={{ backgroundImage: `url(${testimonial.productImage})` }}
+                />
+                {/* Main product image, fitted and centered without cropping */}
                 <img
                   src={testimonial.productImage}
                   alt={testimonial.productLabel}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-contain z-10 p-4 md:p-6"
                   draggable={false}
                 />
                 {/* Dark overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-zinc-900/40" />
-
-
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-zinc-900/40 z-20 pointer-events-none" />
               </div>
 
               {/* Right: Review Content */}
@@ -256,11 +260,10 @@ export const Testimonials: React.FC = React.memo(() => {
               key={idx}
               onClick={() => goTo(idx, idx > current ? 1 : -1)}
               aria-label={`Go to review ${idx + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-400 cursor-pointer ${
-                current === idx
+              className={`h-1.5 rounded-full transition-all duration-400 cursor-pointer ${current === idx
                   ? "bg-white w-8"
                   : "bg-white/20 hover:bg-white/40 w-2"
-              }`}
+                }`}
             />
           ))}
         </div>

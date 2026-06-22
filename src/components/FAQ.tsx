@@ -66,17 +66,8 @@ const AccordionItem: React.FC<{
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full flex items-center justify-between gap-6 py-6 text-left group cursor-pointer"
+        className="w-full flex items-center gap-6 py-6 text-left group cursor-pointer"
       >
-        {/* Question */}
-        <span
-          className={`font-display text-base md:text-lg tracking-tight transition-colors duration-300 ${
-            isOpen ? "text-white" : "text-white/70 group-hover:text-white"
-          }`}
-        >
-          {item.q}
-        </span>
-
         {/* Icon */}
         <span
           className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${
@@ -86,6 +77,15 @@ const AccordionItem: React.FC<{
           }`}
         >
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+        </span>
+
+        {/* Question */}
+        <span
+          className={`font-display text-base md:text-lg tracking-tight transition-colors duration-300 ${
+            isOpen ? "text-white" : "text-white/70 group-hover:text-white"
+          }`}
+        >
+          {item.q}
         </span>
       </button>
 
@@ -97,7 +97,7 @@ const AccordionItem: React.FC<{
           transition: "max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
         }}
       >
-        <div ref={contentRef} className="pb-6 pr-14">
+        <div ref={contentRef} className="pb-6 pl-14 pr-6">
           <p className="text-white/55 text-sm md:text-base leading-relaxed">
             {item.a}
           </p>

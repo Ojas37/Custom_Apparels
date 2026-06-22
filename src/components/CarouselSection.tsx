@@ -72,50 +72,53 @@ const IMAGES = [
 ];
 
 const getRoleStyle = (role: "center" | "left" | "right" | "back" | "hidden", isMobile: boolean) => {
-  // On mobile: images sit at 42% (not 50%) so they're visible as soon as
-  // the section scrolls into view — avoids the blank-top-of-section problem.
-  const TOP = isMobile ? "42%" : "50%";
+  // On mobile: images sit at 44% so the card is nicely centered in the visible area.
+  const TOP = isMobile ? "44%" : "50%";
 
   switch (role) {
     case "center":
       return {
-        transform: `translateX(-50%) translateY(-50%) scale(${isMobile ? 1.05 : 1.25})`,
+        transform: `translateX(-50%) translateY(-50%) scale(${isMobile ? 1.15 : 1.2})`,
         filter: "blur(0px)",
         opacity: 1,
         zIndex: 20,
         left: "50%",
         top: TOP,
-        height: isMobile ? "40%" : "55%",
+        // Increased: mobile 40%→55%, desktop 55%→70%
+        height: isMobile ? "55%" : "70%",
       };
     case "left":
       return {
-        transform: "translateX(-50%) translateY(-50%) scale(0.9)",
+        transform: "translateX(-50%) translateY(-50%) scale(0.88)",
         filter: "blur(2px)",
-        opacity: 0.7,
+        opacity: 0.65,
         zIndex: 10,
-        left: isMobile ? "15%" : "22%",
+        left: isMobile ? "14%" : "20%",
         top: TOP,
-        height: isMobile ? "28%" : "40%",
+        // Increased: mobile 28%→38%, desktop 40%→52%
+        height: isMobile ? "38%" : "52%",
       };
     case "right":
       return {
-        transform: "translateX(-50%) translateY(-50%) scale(0.9)",
+        transform: "translateX(-50%) translateY(-50%) scale(0.88)",
         filter: "blur(2px)",
-        opacity: 0.7,
+        opacity: 0.65,
         zIndex: 10,
-        left: isMobile ? "85%" : "78%",
+        left: isMobile ? "86%" : "80%",
         top: TOP,
-        height: isMobile ? "28%" : "40%",
+        // Increased: mobile 28%→38%, desktop 40%→52%
+        height: isMobile ? "38%" : "52%",
       };
     case "back":
       return {
-        transform: "translateX(-50%) translateY(-50%) scale(0.75)",
+        transform: "translateX(-50%) translateY(-50%) scale(0.72)",
         filter: "blur(4px)",
-        opacity: 0.4,
+        opacity: 0.35,
         zIndex: 5,
         left: "50%",
         top: TOP,
-        height: isMobile ? "20%" : "30%",
+        // Increased: mobile 20%→28%, desktop 30%→40%
+        height: isMobile ? "28%" : "40%",
       };
     case "hidden":
       return {
@@ -125,7 +128,8 @@ const getRoleStyle = (role: "center" | "left" | "right" | "back" | "hidden", isM
         zIndex: 0,
         left: "50%",
         top: TOP,
-        height: isMobile ? "16%" : "25%",
+        // Increased: mobile 16%→22%, desktop 25%→32%
+        height: isMobile ? "22%" : "32%",
       };
   }
 };
@@ -277,30 +281,7 @@ export const CarouselSection: React.FC = React.memo(() => {
           }}
         />
 
-        {/* 2. Giant ghost text "WEAR WHAT MATTERS" */}
-        <div
-          className="absolute inset-x-0 flex items-center justify-center pointer-events-none select-none z-[2]"
-          style={{
-            top: "50%",
-            transform: "translateY(-50%)",
-            fontFamily: "'Anton', sans-serif",
-            /* 
-             * Anton is ~0.58em wide per char.
-             * "WEAR WHAT MATTERS" = 18 chars + 2 spaces ≈ 11.5× the font-size in width.
-             * Target: fill ~95vw → font-size ≈ 95vw / 11.5 ≈ 8.26vw
-             * clamp: min 14px (tiny phones) → 8.5vw → max 160px (4K screens)
-             */
-            fontSize: "clamp(14px, 8.5vw, 160px)",
-            fontWeight: 900,
-            color: "#ffffff",
-            opacity: 0.1,
-            lineHeight: 1,
-            letterSpacing: "0.04em",
-            whiteSpace: "nowrap",
-          }}
-        >
-          WEAR WHAT MATTERS
-        </div>
+        {/* 2. Background ghost text removed — products are the sole focus */}
 
         {/* 3. Top-left brand label — hidden on mobile (navbar already shows it) */}
         <div className="hidden sm:block absolute top-6 left-4 sm:left-8 z-[60] text-xs font-semibold uppercase text-white opacity-90 tracking-[0.18em]">

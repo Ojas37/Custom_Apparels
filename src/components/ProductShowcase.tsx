@@ -171,7 +171,7 @@ const ProductCard: React.FC<{
           src={item.image}
           alt={item.name}
           className={`w-full h-full group-hover:scale-105 transition-transform duration-500 ease-carousel origin-center ${
-            item.padImage ? "p-6 object-contain" : "object-cover"
+            item.padImage ? "p-0 sm:p-6 object-contain" : "object-cover"
           }`}
         />
       </div>
