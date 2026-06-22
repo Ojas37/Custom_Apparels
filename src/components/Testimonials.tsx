@@ -167,7 +167,7 @@ export const Testimonials: React.FC = React.memo(() => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           className="relative overflow-hidden rounded-3xl border border-white/8 bg-zinc-900/60 backdrop-blur-sm"
-          style={{ minHeight: "420px" }}
+          style={{ minHeight: "480px" }}
         >
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -181,8 +181,8 @@ export const Testimonials: React.FC = React.memo(() => {
               className="grid grid-cols-1 md:grid-cols-[2fr_3fr] h-full"
             >
               {/* Left: Product Image */}
-              <div className="relative overflow-hidden rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl rounded-br-none md:rounded-tr-none md:rounded-bl-3xl bg-zinc-950/60"
-                style={{ minHeight: "280px" }}>
+              <div className="relative overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-r-none bg-zinc-950/60"
+                style={{ minHeight: "340px" }}>
                 {/* Blurred duplicate background to fill space beautifully */}
                 <div
                   className="absolute inset-0 bg-cover bg-center filter blur-xl scale-110 opacity-30 select-none pointer-events-none"
