@@ -1,13 +1,16 @@
 import React from "react";
 import { MessageSquare, PhoneCall, Mail, MapPin, Clock } from "lucide-react";
+import { config, getWhatsAppLink } from "../config";
 
 const handleWhatsAppClick = () => {
-  const message = encodeURIComponent("Hi! I am ready to start my custom merchandise project. I want a free mockup and pricing details.");
-  window.open("https://wa.me/919004490995?text=" + message, "_blank");
+  window.open(
+    getWhatsAppLink("Hi! I am ready to start my custom merchandise project. I want a free mockup and pricing details."),
+    "_blank"
+  );
 };
 
 const handleCallClick = () => {
-  window.open("tel:+919004490995");
+  window.open(`tel:${config.primaryPhone.replace(/\s+/g, "")}`);
 };
 
 export const FooterCTA: React.FC = React.memo(() => {
@@ -71,38 +74,38 @@ export const FooterCTA: React.FC = React.memo(() => {
           {/* Col 1: Contact Info */}
           <div className="flex flex-col gap-5">
             <h3 className="font-display text-xl font-bold tracking-wider text-white">
-              CUSTOM APPARELS
+              {config.companyName.toUpperCase()}
             </h3>
             
             <div className="flex flex-col gap-3.5 text-xs text-white/60">
               <a
-                href="mailto:team@customapparels.co.in"
+                href={`mailto:${config.email}`}
                 className="flex items-center gap-2.5 hover:text-white transition-colors duration-200"
               >
                 <Mail className="w-4 h-4 text-white/40" />
-                <span>team@customapparels.co.in</span>
+                <span>{config.email}</span>
               </a>
 
               <a
-                href="tel:+919004490995"
+                href={`tel:${config.primaryPhone.replace(/\s+/g, "")}`}
                 className="flex items-center gap-2.5 hover:text-white transition-colors duration-200"
               >
                 <PhoneCall className="w-4 h-4 text-white/40" />
-                <span>(+91) 90044 90995</span>
+                <span>{config.primaryPhone}</span>
               </a>
 
               <a
-                href="tel:+917420852608"
+                href={`tel:${config.secondaryPhone.replace(/\s+/g, "")}`}
                 className="flex items-center gap-2.5 hover:text-white transition-colors duration-200"
               >
                 <PhoneCall className="w-4 h-4 text-white/40" />
-                <span>(+91) 74208 52608</span>
+                <span>{config.secondaryPhone}</span>
               </a>
 
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-white/40 mt-0.5 flex-shrink-0" />
                 <span className="leading-relaxed">
-                  Office 642, 6th Floor, Intelligentia Business Park,<br />Sector 24, Vashi, Navi Mumbai, Maharashtra 400703
+                  {config.address}
                 </span>
               </div>
 

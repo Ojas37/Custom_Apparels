@@ -2,6 +2,7 @@ import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "./Navbar";
 import { ArrowRight, MessageSquare } from "lucide-react";
+import { config, getWhatsAppLink } from "../config";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -34,15 +35,14 @@ export const Hero: React.FC = () => {
   const opacityBackground = useTransform(scrollY, [0, 400], [0.20, 0.05]); // Fades clothing rack slightly
 
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Hi! I'd like to get a free mockup for custom apparel. Can you help me with design requirements?");
-    window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
+    window.open(
+      getWhatsAppLink("Hi! I'd like to get a free mockup for custom apparel. Can you help me with design requirements?"),
+      "_blank"
+    );
   };
 
   const handleExploreClick = () => {
-    window.open(
-      "https://drive.google.com/file/d/1vJjvAqlqpE79xWlpgoIJJgsQBNpHe5rc/view?usp=sharing",
-      "_blank"
-    );
+    window.open(config.catalogLink, "_blank");
   };
 
   return (

@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageSquare } from "lucide-react";
+import { getWhatsAppLink } from "../config";
 
 interface GalleryItem {
   id: string;
@@ -49,6 +50,23 @@ const RecentWorkCard: React.FC<{
   onEnquire: (title: string) => void;
 }> = ({ item, onEnquire }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // Load video 200px before entering viewport
+    );
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   // Track scroll progression relative to this card to shift the image
   const { scrollYProgress } = useScroll({
@@ -71,7 +89,7 @@ const RecentWorkCard: React.FC<{
       {/* Video or Image Layer with Parallax */}
       {item.video ? (
         <video
-          src={item.video}
+          src={isInView ? item.video : undefined}
           poster={item.image}
           autoPlay
           loop
@@ -124,8 +142,10 @@ const RecentWorkCard: React.FC<{
 
 export const RecentWork: React.FC = React.memo(() => {
   const handleWhatsAppClick = (title: string) => {
-    const message = encodeURIComponent(`Hi! I saw the Recent Work item: "${title}" and want to get mockups/quotes for something similar.`);
-    window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
+    window.open(
+      getWhatsAppLink(`Hi! I saw the Recent Work item: "${title}" and want to get mockups/quotes for something similar.`),
+      "_blank"
+    );
   };
 
   return (

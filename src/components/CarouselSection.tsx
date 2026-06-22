@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { getWhatsAppLink } from "../config";
 
 export interface Product {
   id: string;
@@ -194,8 +195,10 @@ export const CarouselSection: React.FC = React.memo(() => {
 
   const handleWhatsAppEnquiry = () => {
     const currentProduct = IMAGES[activeIndex];
-    const message = encodeURIComponent(`Hi! I'm interested in custom ${currentProduct.name} and would like to get a quote and mockup.`);
-    window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
+    window.open(
+      getWhatsAppLink(`Hi! I'm interested in custom ${currentProduct.name} and would like to get a quote and mockup.`),
+      "_blank"
+    );
   };
 
   // ── Touch handlers ───────────────────────────────────────────────

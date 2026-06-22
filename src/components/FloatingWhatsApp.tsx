@@ -1,9 +1,12 @@
 import React from "react";
 import { MessageSquare } from "lucide-react";
+import { getWhatsAppLink } from "../config";
 
 const handleWhatsAppClick = () => {
-  const message = encodeURIComponent("Hi! I am interested in custom merchandise for my brand. Let's discuss design mockups!");
-  window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
+  window.open(
+    getWhatsAppLink("Hi! I am interested in custom merchandise for my brand. Let's discuss design mockups!"),
+    "_blank"
+  );
 };
 
 export const FloatingWhatsApp: React.FC = React.memo(() => {

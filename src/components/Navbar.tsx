@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MessageSquare, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { config, getWhatsAppLink } from "../config";
 
 export const Navbar: React.FC = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,8 +19,10 @@ export const Navbar: React.FC = React.memo(() => {
   }, [isMenuOpen]);
 
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Hi! I'd like to make an enquiry for custom merchandise for my brand.");
-    window.open(`https://wa.me/919004490995?text=${message}`, "_blank");
+    window.open(
+      getWhatsAppLink("Hi! I'd like to make an enquiry for custom merchandise for my brand."),
+      "_blank"
+    );
   };
 
   return (
@@ -155,22 +158,22 @@ export const Navbar: React.FC = React.memo(() => {
                 Get in Touch
               </span>
               <a
-                href="tel:+919004490995"
+                href={`tel:${config.primaryPhone.replace(/\s+/g, "")}`}
                 className="text-white/60 hover:text-white text-xs transition-colors"
               >
-                Call: +91 90044 90995
+                Call: {config.primaryPhone}
               </a>
               <a
-                href="tel:+917420852608"
+                href={`tel:${config.secondaryPhone.replace(/\s+/g, "")}`}
                 className="text-white/60 hover:text-white text-xs transition-colors"
               >
-                Call: +91 74208 52608
+                Call: {config.secondaryPhone}
               </a>
               <a
-                href="mailto:team@customapparels.co.in"
+                href={`mailto:${config.email}`}
                 className="text-white/60 hover:text-white text-xs transition-colors"
               >
-                Email: team@customapparels.co.in
+                Email: {config.email}
               </a>
             </div>
           </motion.div>
