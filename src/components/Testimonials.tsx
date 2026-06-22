@@ -61,6 +61,30 @@ const TESTIMONIALS: Testimonial[] = [
     initial: "Y",
     accentColor: "#ff9f1c",
   },
+  {
+    id: "t5",
+    name: "Indian Thali House",
+    role: "Corporate Polo Shirts",
+    rating: 5,
+    quote:
+      "Would like to give 5 star for their management & customer services. Ordering polo printed t-shirts for our restaurant staffs was a great success.",
+    productImage: "/testimonials/ith-polo.jpeg",
+    productLabel: "Corporate Polo Shirts",
+    initial: "I",
+    accentColor: "#8338ec",
+  },
+  {
+    id: "t6",
+    name: "Shloka Sawant",
+    role: "Custom Mousepad",
+    rating: 5,
+    quote:
+      "Got this mouse pad customized. Quality + timely response from the team has ensured that I will be reaching out to custom apparel all the time for all my customised needs!",
+    productImage: "/testimonials/mousepad.jpeg",
+    productLabel: "Custom Mousepad",
+    initial: "S",
+    accentColor: "#ff006e",
+  },
 ];
 
 export const Testimonials: React.FC = React.memo(() => {
@@ -166,7 +190,7 @@ export const Testimonials: React.FC = React.memo(() => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className="relative overflow-hidden rounded-3xl border border-white/8 bg-zinc-900/60 backdrop-blur-sm"
+          className="relative overflow-hidden rounded-3xl border border-white/8 bg-zinc-900/60 backdrop-blur-sm md:h-[480px]"
           style={{ minHeight: "480px" }}
         >
           <AnimatePresence mode="wait" custom={direction}>
@@ -178,11 +202,10 @@ export const Testimonials: React.FC = React.memo(() => {
               animate="center"
               exit="exit"
               transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="grid grid-cols-1 md:grid-cols-[2fr_3fr] h-full"
+              className="flex flex-col md:flex-row h-full"
             >
               {/* Left: Product Image */}
-              <div className="relative overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-r-none bg-zinc-950/60"
-                style={{ minHeight: "340px" }}>
+              <div className="relative aspect-[3/4] w-full h-auto md:w-auto md:h-full flex-shrink-0 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-r-none bg-zinc-950/60">
                 {/* Blurred duplicate background to fill space beautifully */}
                 <div
                   className="absolute inset-0 bg-cover bg-center filter blur-xl scale-110 opacity-30 select-none pointer-events-none"
@@ -200,7 +223,7 @@ export const Testimonials: React.FC = React.memo(() => {
               </div>
 
               {/* Right: Review Content */}
-              <div className="flex flex-col justify-between p-8 md:p-10 lg:p-14">
+              <div className="flex flex-col justify-between p-8 md:p-10 lg:p-14 flex-grow">
                 {/* Top: Stars + Quote */}
                 <div>
                   {/* Stars */}
