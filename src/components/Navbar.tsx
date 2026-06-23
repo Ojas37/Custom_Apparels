@@ -36,35 +36,30 @@ export const Navbar: React.FC = React.memo(() => {
           {/* Left – hamburger */}
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="flex items-center gap-1.5 text-white/80 hover:text-white text-xs font-bold uppercase tracking-widest cursor-pointer transition-colors duration-200 shrink-0 p-3 -m-3"
+            className="flex items-center gap-1.5 text-white/80 hover:text-white text-[10px] font-bold uppercase tracking-wider cursor-pointer transition-colors duration-200 shrink-0 p-3 -m-3"
             aria-label="Open navigation menu"
           >
-            <Menu className="w-5 h-5 text-white" />
-            <span>Menu</span>
+            <Menu className="w-4 h-4 text-white" />
+            <span>MENU</span>
           </button>
 
-          {/* Center – logo (absolutely centered so it ignores button widths) */}
+          {/* Center – text-based stacked logo */}
           <a
             href="#"
             aria-label="Custom Apparels Homepage"
-            className="absolute left-1/2 -translate-x-1/2 flex items-center group"
+            className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center justify-center text-center font-display font-extrabold text-[12px] leading-[1.05] text-white tracking-[0.08em] select-none"
           >
-            <img
-              src="/logo.webp"
-              alt="CUSTOM APPARELS"
-              width={65}
-              height={20}
-              className="h-5 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
-            />
+            <span>CUSTOM</span>
+            <span>APPARELS</span>
           </a>
 
           {/* Right – Enquire Now */}
           <button
             onClick={handleWhatsAppClick}
-            className="flex items-center gap-1 px-4 py-2 rounded-full border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shrink-0"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 text-white text-[10px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shrink-0"
           >
             <MessageSquare className="w-3.5 h-3.5 text-white" />
-            <span>Enquire Now</span>
+            <span>ENQUIRE NOW</span>
           </button>
         </div>
 
