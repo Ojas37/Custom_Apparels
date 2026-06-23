@@ -35,3 +35,6 @@ dist-ssr
 .vercel
 .env*.local
 .vercel_backup/
+
+.vercel
+.env*.local
