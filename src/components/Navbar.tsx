@@ -43,14 +43,19 @@ export const Navbar: React.FC = React.memo(() => {
             <span>MENU</span>
           </button>
 
-          {/* Center – text-based stacked logo */}
+          {/* Center – logo (absolutely centered so it ignores button widths) */}
           <a
             href="#"
             aria-label="Custom Apparels Homepage"
-            className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center justify-center text-center font-display font-extrabold text-[12px] leading-[1.05] text-white tracking-[0.08em] select-none"
+            className="absolute left-1/2 -translate-x-1/2 flex items-center group"
           >
-            <span>CUSTOM</span>
-            <span>APPARELS</span>
+            <img
+              src="/logo.webp"
+              alt="CUSTOM APPARELS"
+              width={65}
+              height={20}
+              className="h-5 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
+            />
           </a>
 
           {/* Right – Enquire Now */}

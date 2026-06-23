@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Montserrat", sans-serif;
-  --font-serif:   "Montserrat", sans-serif;
-  --font-body:    "Montserrat", sans-serif;
+  --font-display: "Montserrat Variable", sans-serif;
+  --font-serif:   "Montserrat Variable", sans-serif;
+  --font-body:    "Montserrat Variable", sans-serif;
 
   --color-slide-oversized: #F4845F;
   --color-slide-hoodie: #6B7280;
@@ -44,7 +44,7 @@
 
 /* Global base font — ensures Montserrat applies everywhere */
 html, body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Variable", sans-serif;
 }
 
 /* Custom scrollbar hides */
