@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import Lenis from "lenis";
 import { Hero } from "./components/Hero";
-import { CarouselSection } from "./components/CarouselSection";
-import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
-import { TrustBar } from "./components/TrustBar";
-import { WhyChooseUs } from "./components/WhyChooseUs";
-import { AboutUs } from "./components/AboutUs";
-import { ProductShowcase } from "./components/ProductShowcase";
-import { HowItWorks } from "./components/HowItWorks";
-import { RecentWork } from "./components/RecentWork";
 
-import { Testimonials } from "./components/Testimonials";
-import { FAQ } from "./components/FAQ";
-import { FooterCTA } from "./components/FooterCTA";
+// Lazy load below-the-fold components
+const CarouselSection = lazy(() => import("./components/CarouselSection").then(m => ({ default: m.CarouselSection })));
+const TrustBar = lazy(() => import("./components/TrustBar").then(m => ({ default: m.TrustBar })));
+const WhyChooseUs = lazy(() => import("./components/WhyChooseUs").then(m => ({ default: m.WhyChooseUs })));
+const AboutUs = lazy(() => import("./components/AboutUs").then(m => ({ default: m.AboutUs })));
+const ProductShowcase = lazy(() => import("./components/ProductShowcase").then(m => ({ default: m.ProductShowcase })));
+const HowItWorks = lazy(() => import("./components/HowItWorks").then(m => ({ default: m.HowItWorks })));
+const RecentWork = lazy(() => import("./components/RecentWork").then(m => ({ default: m.RecentWork })));
+const Testimonials = lazy(() => import("./components/Testimonials").then(m => ({ default: m.Testimonials })));
+const FAQ = lazy(() => import("./components/FAQ").then(m => ({ default: m.FAQ })));
+const FooterCTA = lazy(() => import("./components/FooterCTA").then(m => ({ default: m.FooterCTA })));
+const FloatingWhatsApp = lazy(() => import("./components/FloatingWhatsApp").then(m => ({ default: m.FloatingWhatsApp })));
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -36,43 +37,66 @@ const App: React.FC = () => {
 
   return (
     <div id="carousel" className="w-full min-h-screen relative overflow-x-hidden">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section (includes header/navbar) */}
       <Hero />
 
-      {/* 1.5. Standalone Rotating Product Carousel Section */}
-      <CarouselSection />
+      {/* Main Landmark wrapper */}
+      <main>
+        {/* 1.5. Standalone Rotating Product Carousel Section */}
+        <Suspense fallback={<div className="min-h-[400px] bg-[#0c0c0e]" />}>
+          <CarouselSection />
+        </Suspense>
 
-      {/* 2. Client Logos Marquee */}
-      <TrustBar />
+        {/* 2. Client Logos Marquee */}
+        <Suspense fallback={<div className="min-h-[180px] bg-white" />}>
+          <TrustBar />
+        </Suspense>
 
-      {/* 3. Why Choose Us (Value propositions) */}
-      <WhyChooseUs />
+        {/* 3. Why Choose Us (Value propositions) */}
+        <Suspense fallback={<div className="min-h-[300px] bg-zinc-950/40" />}>
+          <WhyChooseUs />
+        </Suspense>
 
-      {/* 3.5. Impressive About Us Section */}
-      <AboutUs />
+        {/* 3.5. Impressive About Us Section */}
+        <Suspense fallback={<div className="min-h-[300px] bg-zinc-950" />}>
+          <AboutUs />
+        </Suspense>
 
-      {/* 4. Products (What Can We Customize?) */}
-      <ProductShowcase />
+        {/* 4. Products (What Can We Customize?) */}
+        <Suspense fallback={<div className="min-h-[400px] bg-black" />}>
+          <ProductShowcase />
+        </Suspense>
 
-      {/* 5. How It Works (Timeline process) */}
-      <HowItWorks />
+        {/* 5. How It Works (Timeline process) */}
+        <Suspense fallback={<div className="min-h-[400px] bg-zinc-950/20" />}>
+          <HowItWorks />
+        </Suspense>
 
-      {/* 6. Recent Work (Masonry portfolio gallery - largest section) */}
-      <RecentWork />
+        {/* 6. Recent Work (Masonry portfolio gallery) */}
+        <Suspense fallback={<div className="min-h-[500px] bg-zinc-950" />}>
+          <RecentWork />
+        </Suspense>
 
+        {/* 8. Testimonials */}
+        <Suspense fallback={<div className="min-h-[400px] bg-zinc-950/40" />}>
+          <Testimonials />
+        </Suspense>
 
-
-      {/* 8. Testimonials */}
-      <Testimonials />
-
-      {/* 9. FAQ */}
-      <FAQ />
+        {/* 9. FAQ */}
+        <Suspense fallback={<div className="min-h-[300px] bg-black" />}>
+          <FAQ />
+        </Suspense>
+      </main>
 
       {/* 10. Final CTA Footer Section */}
-      <FooterCTA />
+      <Suspense fallback={<div className="min-h-[300px] bg-black" />}>
+        <FooterCTA />
+      </Suspense>
 
       {/* Floating Sticky Contact Badge */}
-      <FloatingWhatsApp />
+      <Suspense fallback={null}>
+        <FloatingWhatsApp />
+      </Suspense>
     </div>
   );
 };

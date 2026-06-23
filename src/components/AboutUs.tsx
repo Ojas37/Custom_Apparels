@@ -32,7 +32,7 @@ export const AboutUs: React.FC = React.memo(() => {
               <p>
                 Every piece in our catalog is crafted from scratch—selecting the finest long-staple cotton, tailoring fits for everyday comfort, and executing prints with computer-guided precision.
               </p>
-              <p className="text-white/40 text-xs border-l-2 border-white/15 pl-4 mt-2 italic">
+              <p className="text-white/65 text-xs border-l-2 border-white/15 pl-4 mt-2 italic">
                 From concept development and design to production and fulfillment, we bring merchandise projects to life at any scale.
               </p>
             </div>
@@ -56,7 +56,7 @@ export const AboutUs: React.FC = React.memo(() => {
                 <h3 className="text-white font-bold text-lg mb-2 font-display uppercase tracking-wide">
                   Sourcing Premium Fabrics
                 </h3>
-                <p className="text-white/50 text-xs md:text-sm leading-relaxed">
+                <p className="text-white/70 text-xs md:text-sm leading-relaxed">
                   We source high-quality apparel and merchandise that offer superior comfort, durability, and a retail-ready finish—ensuring your brand looks its best.
                 </p>
               </div>
@@ -77,7 +77,7 @@ export const AboutUs: React.FC = React.memo(() => {
                 <h3 className="text-white font-bold text-lg mb-2 font-display uppercase tracking-wide">
                   Precision Print & Embroidery
                 </h3>
-                <p className="text-white/50 text-xs md:text-sm leading-relaxed">
+                <p className="text-white/70 text-xs md:text-sm leading-relaxed">
                   From sharp logo embroidery to vibrant DTF and screen printing, we ensure every detail is reproduced with precision and consistency.
                 </p>
               </div>
@@ -98,7 +98,7 @@ export const AboutUs: React.FC = React.memo(() => {
                 <h3 className="text-white font-bold text-lg mb-2 font-display uppercase tracking-wide">
                   Integrated Packing & Shipping
                 </h3>
-                <p className="text-white/50 text-xs md:text-sm leading-relaxed">
+                <p className="text-white/70 text-xs md:text-sm leading-relaxed">
                   We handle folding, custom packaging boxes, sleeve wraps, and individual parcel dispatching directly to employees, clients, or customers across India. Zero logistics hassle.
                 </p>
               </div>

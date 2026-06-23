@@ -73,7 +73,7 @@ const AccordionItem: React.FC<{
           className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${
             isOpen
               ? "border-white bg-white text-black"
-              : "border-white/15 text-white/50 group-hover:border-white/40 group-hover:text-white"
+              : "border-white/15 text-white/70 group-hover:border-white/40 group-hover:text-white"
           }`}
         >
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -133,7 +133,7 @@ export const FAQ: React.FC = React.memo(() => {
           </span>
           <h2 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tight leading-none">
             Got Questions?<br className="hidden md:block" />{" "}
-            <span className="text-white/30">We've Got Answers.</span>
+            <span className="text-white/60">We've Got Answers.</span>
           </h2>
         </motion.div>
 

@@ -104,7 +104,7 @@ export const WhyChooseUs: React.FC = React.memo(() => {
                   <h3 className="text-white font-bold text-lg mb-2">
                     {card.title}
                   </h3>
-                  <p className="text-white/50 text-xs md:text-sm leading-relaxed">
+                  <p className="text-white/70 text-xs md:text-sm leading-relaxed">
                     {card.desc}
                   </p>
                 </div>

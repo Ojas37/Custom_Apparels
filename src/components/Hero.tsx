@@ -1,30 +1,25 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "./Navbar";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight, MessageSquare, Users, Package, Star } from "lucide-react";
 import { config, getWhatsAppLink } from "../config";
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.15,
+      staggerChildren: 0,
+      delayChildren: 0,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { y: 25, opacity: 0 },
+  hidden: { y: 0, opacity: 1 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: {
-      type: "spring" as const,
-      stiffness: 85,
-      damping: 14,
-    },
   },
 } as const;
 
@@ -50,19 +45,21 @@ export const Hero: React.FC = () => {
       className="relative w-full min-h-screen lg:h-screen lg:overflow-hidden bg-[#0c0c0e] bg-grain select-none flex flex-col justify-between p-4 md:p-8"
     >
       {/* 1. Ghost Clothing Rack Background cover */}
-      <motion.div
+      <motion.img
+        src="/rack-bg.webp"
+        alt=""
+        fetchPriority="high"
         style={{
           opacity: opacityBackground,
-          backgroundImage: "url('/rack-bg.png')",
         }}
-        className="absolute inset-0 bg-cover bg-center pointer-events-none transition-all duration-700"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none transition-all duration-700"
       />
 
       {/* Header / Navbar */}
       <Navbar />
 
       {/* Main Center Layout */}
-      <div className="flex-1 w-full max-w-4xl mx-auto mt-28 md:mt-24 mb-8 flex flex-col justify-center items-center z-20 px-4 md:px-8 text-center">
+      <div className="flex-1 w-full max-w-4xl mx-auto mt-28 md:mt-24 mb-8 pb-6 flex flex-col justify-center items-center z-20 px-4 md:px-8 text-center">
         
         {/* Headline and CTAs */}
         <motion.div 
@@ -99,7 +96,7 @@ export const Hero: React.FC = () => {
           {/* Button CTAs */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-10 pointer-events-auto w-full max-w-md sm:max-w-none"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-6 md:mb-8 pointer-events-auto w-full max-w-md sm:max-w-none"
           >
             {/* Primary Button (Solid White) */}
             <button
@@ -122,19 +119,39 @@ export const Hero: React.FC = () => {
           {/* Stat Row */}
           <motion.div 
             variants={itemVariants}
-            className="grid grid-cols-[auto_auto_auto] justify-between gap-3 sm:gap-6 pt-8 border-t border-white/10 w-full max-w-xl mx-auto"
+            className="grid grid-cols-3 divide-x divide-white/10 pt-6 border-t border-white/10 w-full max-w-2xl mx-auto"
           >
-            <div>
-              <h4 className="text-white font-serif italic text-3xl md:text-4xl font-normal">10k+</h4>
-              <p className="text-white/40 text-[10px] font-medium tracking-wide mt-2">Order Capacity</p>
+            <div className="flex flex-col items-center text-center px-1 sm:px-4">
+              <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 mb-3">
+                <Users className="w-5 h-5 text-white/80" strokeWidth={1.5} />
+              </div>
+              <h4 className="text-white font-display font-bold text-2xl md:text-3xl leading-none">100+</h4>
+              <p className="text-white/90 text-[11px] md:text-sm font-semibold tracking-wide mt-2">Happy Clients</p>
+              <p className="text-white/50 text-[9px] md:text-[11px] font-normal leading-tight mt-1 max-w-[120px] sm:max-w-none">
+                Trusted by brands across India
+              </p>
             </div>
-            <div>
-              <h4 className="text-white font-serif italic text-2xl md:text-4xl font-normal whitespace-nowrap">Pan India</h4>
-              <p className="text-white/40 text-[10px] font-medium tracking-wide mt-2">Direct Delivery</p>
+
+            <div className="flex flex-col items-center text-center px-1 sm:px-4">
+              <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 mb-3">
+                <Package className="w-5 h-5 text-white/80" strokeWidth={1.5} />
+              </div>
+              <h4 className="text-white font-display font-bold text-2xl md:text-3xl leading-none">1K+</h4>
+              <p className="text-white/90 text-[11px] md:text-sm font-semibold tracking-wide mt-2">Orders Delivered</p>
+              <p className="text-white/50 text-[9px] md:text-[11px] font-normal leading-tight mt-1 max-w-[120px] sm:max-w-none">
+                Successfully delivered across India
+              </p>
             </div>
-            <div>
-              <h4 className="text-white font-serif italic text-3xl md:text-4xl font-normal">Free</h4>
-              <p className="text-white/40 text-[10px] font-medium tracking-wide mt-2">Design Assistance</p>
+
+            <div className="flex flex-col items-center text-center px-1 sm:px-4">
+              <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 mb-3">
+                <Star className="w-5 h-5 text-white/80" strokeWidth={1.5} />
+              </div>
+              <h4 className="text-white font-display font-bold text-2xl md:text-3xl leading-none">4.9/5</h4>
+              <p className="text-white/90 text-[11px] md:text-sm font-semibold tracking-wide mt-2">Client Ratings</p>
+              <p className="text-white/50 text-[9px] md:text-[11px] font-normal leading-tight mt-1 max-w-[120px] sm:max-w-none">
+                Based on 100+ Reviews
+              </p>
             </div>
           </motion.div>
         </motion.div>
@@ -145,7 +162,7 @@ export const Hero: React.FC = () => {
       <div className="w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pt-4 border-t border-white/10 z-20 mt-4 lg:mt-0">
         {/* Bottom Left Label */}
         <div className="max-w-xs text-left">
-          <span className="text-white/40 text-[11px] sm:text-[9px] uppercase tracking-[0.25em] font-bold block mb-0.5">
+          <span className="text-white/65 text-[11px] sm:text-[9px] uppercase tracking-[0.25em] font-bold block mb-0.5">
             Top 1% Choice
           </span>
           <p className="text-white/70 text-[13px] sm:text-[11px] leading-snug">

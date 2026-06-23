@@ -92,7 +92,7 @@ export const HowItWorks: React.FC = React.memo(() => {
                         <h3 className="text-white font-bold text-xl uppercase tracking-wider">
                           {step.title}
                         </h3>
-                        <p className="text-white/50 text-xs md:text-sm leading-relaxed max-w-md">
+                        <p className="text-white/70 text-xs md:text-sm leading-relaxed max-w-md">
                           {step.desc}
                         </p>
                       </motion.div>
@@ -121,7 +121,7 @@ export const HowItWorks: React.FC = React.memo(() => {
                         <h3 className="text-white font-bold text-xl uppercase tracking-wider">
                           {step.title}
                         </h3>
-                        <p className="text-white/50 text-xs md:text-sm leading-relaxed max-w-md">
+                        <p className="text-white/70 text-xs md:text-sm leading-relaxed max-w-md">
                           {step.desc}
                         </p>
                       </motion.div>

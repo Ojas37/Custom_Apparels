@@ -12,62 +12,62 @@ export interface Product {
 const IMAGES = [
   {
     name: "Round Neck T-shirt",
-    src: "/products/1.png",
+    src: "/products/1.webp",
     bg: "#cbcbcb",
   },
   {
     name: "Oversized T-shirt",
-    src: "/products/2.png",
+    src: "/products/2.webp",
     bg: "#b8b8b8",
   },
   {
     name: "Polo T-shirt",
-    src: "/products/3.png",
+    src: "/products/3.webp",
     bg: "#b7b5b5",
   },
   {
     name: "Pullover Hoodie",
-    src: "/products/4.png",
+    src: "/products/4.webp",
     bg: "#b3b0b0",
   },
   {
     name: "Zipper Hoodie",
-    src: "/products/5.png",
+    src: "/products/5.webp",
     bg: "#b9b6b7",
   },
   {
     name: "Sweatshirt",
-    src: "/products/6.png",
+    src: "/products/6.webp",
     bg: "#afadae",
   },
   {
     name: "Caps",
-    src: "/products/7.png",
+    src: "/products/7.webp",
     bg: "#b3b0b1",
   },
   {
     name: "Tote Bag",
-    src: "/products/8.png",
+    src: "/products/8.webp",
     bg: "#b3b0b1",
   },
   {
     name: "Apron",
-    src: "/products/9.png",
+    src: "/products/9.webp",
     bg: "#adaaab",
   },
   {
     name: "Merch Kit",
-    src: "/products/12.png",
+    src: "/products/12.webp",
     bg: "#cbcbcb",
   },
   {
     name: "Phone Case",
-    src: "/products/11.png",
+    src: "/products/11.webp",
     bg: "#cbcbcb",
   },
   {
     name: "Other Accessories",
-    src: "/products/10.png",
+    src: "/products/10.webp",
     bg: "#adaaab",
   },
 ];
@@ -158,13 +158,7 @@ export const CarouselSection: React.FC = React.memo(() => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Preload Images
-  useEffect(() => {
-    IMAGES.forEach((item) => {
-      const img = new Image();
-      img.src = item.src;
-    });
-  }, []);
+  // Preload Images disabled to respect lazy loading of below-the-fold assets
 
   // Navigation Logic
   const navigate = (direction: "next" | "prev") => {
@@ -318,6 +312,9 @@ export const CarouselSection: React.FC = React.memo(() => {
                 <img
                   src={item.src}
                   alt={item.name}
+                  width={1080}
+                  height={1350}
+                  loading="lazy"
                   className="w-full h-full object-contain select-none"
                   draggable={false}
                 />

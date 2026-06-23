@@ -33,14 +33,14 @@ const items: GalleryItem[] = [
     id: "work-3",
     title: "BULK CORPORATE DIARIES",
     client: "L&T VYOMA",
-    image: "/recent/raaviera.jpeg",
+    image: "/recent/raaviera.webp",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
   },
   {
     id: "work-4",
     title: "MERCH MADE FOR STARTUPS",
     client: "PROSPECTOO",
-    image: "/recent/dribblers.jpeg",
+    image: "/recent/dribblers.webp",
     gridClass: "md:col-span-4 md:row-span-1 h-[300px] md:h-[350px]",
   },
 ];
@@ -101,6 +101,9 @@ const RecentWorkCard: React.FC<{
         <motion.img
           src={item.image}
           alt={item.title}
+          width={960}
+          height={1280}
+          loading="lazy"
           style={{ y, scale: 1.2 }}
           className="absolute inset-0 w-full h-full object-cover origin-center z-0"
         />
@@ -117,7 +120,7 @@ const RecentWorkCard: React.FC<{
         {/* Title and Client */}
         <div className="text-left">
           {item.client && (
-            <span className="text-[10px] uppercase tracking-widest font-semibold text-white/50 block mb-1">
+            <span className="text-[10px] uppercase tracking-widest font-semibold text-white/70 block mb-1">
               Client: {item.client}
             </span>
           )}

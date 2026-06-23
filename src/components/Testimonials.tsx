@@ -13,6 +13,8 @@ interface Testimonial {
   initial: string;
   accentColor: string;
   isException?: boolean;
+  width: number;
+  height: number;
 }
 
 const TESTIMONIALS: Testimonial[] = [
@@ -23,10 +25,12 @@ const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     quote:
       "Loved the quality, print everything about the tshirt. Probably will buy it again and again 😍",
-    productImage: "/testimonials/graphic-tees.jpeg",
+    productImage: "/testimonials/graphic-tees.webp",
     productLabel: "Graphic Tees",
     initial: "B",
     accentColor: "#e63946",
+    width: 1071,
+    height: 1428,
   },
   {
     id: "t2",
@@ -34,11 +38,13 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Premium Gift Kit",
     rating: 5,
     quote: "One of the best for the customized merch",
-    productImage: "/testimonials/redbull-kit.jpeg",
+    productImage: "/testimonials/redbull-kit.webp",
     productLabel: "Custom Gift Box",
     initial: "H",
     accentColor: "#3a86ff",
     isException: true,
+    width: 1080,
+    height: 756,
   },
   {
     id: "t3",
@@ -46,10 +52,12 @@ const TESTIMONIALS: Testimonial[] = [
     role: "Corporate Polo Shirts",
     rating: 5,
     quote: "Great tshirt quality loved it",
-    productImage: "/testimonials/royal-wealth-polos.jpeg",
+    productImage: "/testimonials/royal-wealth-polos.webp",
     productLabel: "Corporate Polos",
     initial: "D",
     accentColor: "#2dc653",
+    width: 899,
+    height: 1198,
   },
   {
     id: "t4",
@@ -58,10 +66,12 @@ const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     quote:
       "the quality of tshirts was very good and their delivery and service was on point",
-    productImage: "/testimonials/rocking-idiots.jpeg",
+    productImage: "/testimonials/rocking-idiots.webp",
     productLabel: "Custom Printed Tees",
     initial: "Y",
     accentColor: "#ff9f1c",
+    width: 693,
+    height: 920,
   },
   {
     id: "t5",
@@ -70,10 +80,12 @@ const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     quote:
       "Would like to give 5 star for their management & customer services. Ordering polo printed t-shirts for our restaurant staffs was a great success.",
-    productImage: "/testimonials/ith-polo.jpeg",
+    productImage: "/testimonials/ith-polo.webp",
     productLabel: "Corporate Polo Shirts",
     initial: "I",
     accentColor: "#8338ec",
+    width: 1042,
+    height: 1390,
   },
   {
     id: "t6",
@@ -82,10 +94,12 @@ const TESTIMONIALS: Testimonial[] = [
     rating: 5,
     quote:
       "Got this mouse pad customized. Quality + timely response from the team has ensured that I will be reaching out to custom apparel all the time for all my customised needs!",
-    productImage: "/testimonials/mousepad.jpeg",
+    productImage: "/testimonials/mousepad.webp",
     productLabel: "Custom Mousepad",
     initial: "S",
     accentColor: "#ff006e",
+    width: 1199,
+    height: 1600,
   },
 ];
 
@@ -170,17 +184,17 @@ export const Testimonials: React.FC = React.memo(() => {
             <button
               onClick={handlePrev}
               aria-label="Previous review"
-              className="w-11 h-11 rounded-full border border-white/10 hover:border-white/30 bg-zinc-900/85 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-lg backdrop-blur-sm"
+              className="w-12 h-12 rounded-full border border-white/10 hover:border-white/30 bg-zinc-900/85 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-lg backdrop-blur-sm"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <span className="text-white/30 text-sm font-mono">
+            <span className="text-white/60 text-sm font-mono">
               {String(current + 1).padStart(2, "0")}&nbsp;/&nbsp;{String(total).padStart(2, "0")}
             </span>
             <button
               onClick={handleNext}
               aria-label="Next review"
-              className="w-11 h-11 rounded-full border border-white/10 hover:border-white/30 bg-zinc-900/85 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-lg backdrop-blur-sm"
+              className="w-12 h-12 rounded-full border border-white/10 hover:border-white/30 bg-zinc-900/85 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-lg backdrop-blur-sm"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -222,6 +236,9 @@ export const Testimonials: React.FC = React.memo(() => {
                 <img
                   src={testimonial.productImage}
                   alt={testimonial.productLabel}
+                  width={testimonial.width}
+                  height={testimonial.height}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-contain z-10 p-4 md:p-6"
                   draggable={false}
                 />
@@ -271,7 +288,7 @@ export const Testimonials: React.FC = React.memo(() => {
                     <h4 className="text-white font-bold text-base tracking-wide">
                       {testimonial.name}
                     </h4>
-                    <p className="text-white/40 text-xs mt-0.5 uppercase tracking-widest">
+                    <p className="text-white/65 text-xs mt-0.5 uppercase tracking-widest">
                       {testimonial.role}
                     </p>
                   </div>
@@ -290,11 +307,15 @@ export const Testimonials: React.FC = React.memo(() => {
               key={idx}
               onClick={() => goTo(idx, idx > current ? 1 : -1)}
               aria-label={`Go to review ${idx + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-400 cursor-pointer ${current === idx
-                  ? "bg-white w-8"
-                  : "bg-white/20 hover:bg-white/40 w-2"
-                }`}
-            />
+              className="group py-4 px-2.5 cursor-pointer relative"
+            >
+              <div
+                className={`h-1.5 rounded-full transition-all duration-400 ${current === idx
+                    ? "bg-white w-8"
+                    : "bg-white/20 group-hover:bg-white/40 w-2"
+                  }`}
+              />
+            </button>
           ))}
         </div>
       </div>

@@ -9,26 +9,26 @@ interface LogoItem {
 
 /* ─── Brand logos (existing) ─────────────────────────────────────── */
 const LOGOS: LogoItem[] = [
-  { name: "Prospectoo",       path: "/logos/prospectoo.png" },
-  { name: "Raaviera Hotels",  path: "/logos/raaviera.png"   },
-  { name: "Indian Thali House", path: "/logos/ith.png"      },
-  { name: "NMPA",             path: "/logos/nmpa.png"       },
-  { name: "Kepchaki Momo",    path: "/logos/momo.png"       },
-  { name: "Dribblers FC",     path: "/logos/dribblers.png"  },
-  { name: "Royal Wealth",     path: "/logos/wealth.png"     },
-  { name: "Whoopers",         path: "/logos/whoopers.png"   },
-  { name: "Dragon Tales",     path: "/logos/2.png"          },
-  { name: "No Earth B",       path: "/logos/7.png"          },
+  { name: "Prospectoo",       path: "/logos/prospectoo.webp" },
+  { name: "Raaviera Hotels",  path: "/logos/raaviera.webp"   },
+  { name: "Indian Thali House", path: "/logos/ith.webp"      },
+  { name: "NMPA",             path: "/logos/nmpa.webp"       },
+  { name: "Kepchaki Momo",    path: "/logos/momo.webp"       },
+  { name: "Dribblers FC",     path: "/logos/dribblers.webp"  },
+  { name: "Royal Wealth",     path: "/logos/wealth.webp"     },
+  { name: "Whoopers",         path: "/logos/whoopers.webp"   },
+  { name: "Dragon Tales",     path: "/logos/2.webp"          },
+  { name: "No Earth B",       path: "/logos/7.webp"          },
 ];
 
 /* ─── University logos ───────────────────────────────────────────── */
 const UNIVERSITY_LOGOS: LogoItem[] = [
-  { name: "IIM Bodh Gaya",          path: "/logos/universities/15.png" },
-  { name: "Amity University",        path: "/logos/universities/16.png" },
-  { name: "NMIMS",                   path: "/logos/universities/17.png" },
-  { name: "SIES",                    path: "/logos/universities/18.png", scale: 1.8 },
-  { name: "DJSCE",                   path: "/logos/universities/19.png" },
-  { name: "Jai Hind College",        path: "/logos/universities/20.png" },
+  { name: "IIM Bodh Gaya",          path: "/logos/universities/15.webp" },
+  { name: "Amity University",        path: "/logos/universities/16.webp" },
+  { name: "NMIMS",                   path: "/logos/universities/17.webp" },
+  { name: "SIES",                    path: "/logos/universities/18.webp", scale: 1.8 },
+  { name: "DJSCE",                   path: "/logos/universities/19.webp" },
+  { name: "Jai Hind College",        path: "/logos/universities/20.webp" },
 ];
 
 // Triplicate to guarantee seamless looping on large viewports
@@ -101,6 +101,8 @@ const MarqueeRow: React.FC<MarqueeRowProps> = ({
             <img
               src={logo.path}
               alt={`${logo.name} logo`}
+              width={1200}
+              height={1200}
               className="max-h-full max-w-full object-contain pointer-events-none"
               style={logo.scale ? { transform: `scale(${logo.scale})` } : undefined}
               loading="lazy"
@@ -144,7 +146,7 @@ export const TrustBar: React.FC = React.memo(() => {
 
         {/* ── Brands row ── */}
         <div className="w-full flex flex-col items-center gap-6">
-          <h3 className="text-zinc-500 text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-center">
+          <h3 className="text-zinc-700 text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-center">
             Trusted By Leading Brands
           </h3>
 
@@ -163,7 +165,7 @@ export const TrustBar: React.FC = React.memo(() => {
 
         {/* ── Universities row ── */}
         <div className="w-full flex flex-col items-center gap-6">
-          <h3 className="text-zinc-500 text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-center">
+          <h3 className="text-zinc-700 text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-center">
             &amp; Universities
           </h3>
 

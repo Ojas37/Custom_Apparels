@@ -18,7 +18,7 @@ const items: ShowcaseItem[] = [
     id: "regular-tee",
     name: "Round Neck T-Shirt",
     category: "Apparel",
-    image: "/products/1.png",
+    image: "/products/1.webp",
     description: "Available in multiple colours, sizes, and fabric options.",
     color: "",
   },
@@ -26,7 +26,7 @@ const items: ShowcaseItem[] = [
     id: "oversized-tee",
     name: "Oversized T-Shirt",
     category: "Apparel",
-    image: "/products/2.png",
+    image: "/products/2.webp",
     description: "Available in multiple colours, sizes, and fabric options.",
     color: "",
   },
@@ -34,7 +34,7 @@ const items: ShowcaseItem[] = [
     id: "polo-tee",
     name: "Polo T-Shirt",
     category: "Apparel",
-    image: "/products/3.png",
+    image: "/products/3.webp",
     description: "Available in multiple colours, sizes, and fabric options.",
     color: "",
   },
@@ -42,7 +42,7 @@ const items: ShowcaseItem[] = [
     id: "pullover-hoodie",
     name: "Pullover Hoodie",
     category: "Apparel",
-    image: "/products/4.png",
+    image: "/products/4.webp",
     description: "Available in multiple colours, sizes, and fabric options.",
     color: "",
     bgOverride: "#b3b0b0",
@@ -52,7 +52,7 @@ const items: ShowcaseItem[] = [
     id: "zip-hoodie",
     name: "Zipper Hoodie",
     category: "Apparel",
-    image: "/products/5.png",
+    image: "/products/5.webp",
     description: "Available in multiple colours, sizes, and fabric options.",
     color: "",
     bgOverride: "#b9b6b7",
@@ -62,7 +62,7 @@ const items: ShowcaseItem[] = [
     id: "sweatshirt",
     name: "Sweatshirt",
     category: "Apparel",
-    image: "/products/6.png",
+    image: "/products/6.webp",
     description: "Available in multiple colours, sizes, and fabric options.",
     color: "",
   },
@@ -70,7 +70,7 @@ const items: ShowcaseItem[] = [
     id: "cap",
     name: "Caps",
     category: "Accessories",
-    image: "/products/7.png",
+    image: "/products/7.webp",
     description: "Available in multiple colours & print options.",
     color: "",
   },
@@ -78,7 +78,7 @@ const items: ShowcaseItem[] = [
     id: "tote-bag",
     name: "Tote Bag",
     category: "Accessories",
-    image: "/products/8.png",
+    image: "/products/8.webp",
     description: "Available in multiple colours & size options.",
     color: "",
     bgOverride: "#b3b0b1",
@@ -88,7 +88,7 @@ const items: ShowcaseItem[] = [
     id: "apron",
     name: "Apron",
     category: "Accessories",
-    image: "/products/9.png",
+    image: "/products/9.webp",
     description: "Available in multiple colours & material options.",
     color: "",
     bgOverride: "#adaaab",
@@ -98,7 +98,7 @@ const items: ShowcaseItem[] = [
     id: "pr-box",
     name: "Merch Kit",
     category: "Corporate Packages",
-    image: "/products/12.png",
+    image: "/products/12.webp",
     description: "Custom merch kits tailored to your branding requirements.",
     color: "",
   },
@@ -106,7 +106,7 @@ const items: ShowcaseItem[] = [
     id: "phone-case",
     name: "Phone Case",
     category: "Accessories",
-    image: "/products/11.png",
+    image: "/products/11.webp",
     description: "Available in multiple model options.",
     color: "",
     bgOverride: "#cbcbcb",
@@ -116,7 +116,7 @@ const items: ShowcaseItem[] = [
     id: "welcome-kit",
     name: "Other Accessories",
     category: "Corporate Packages",
-    image: "/products/10.png",
+    image: "/products/10.webp",
     description: "A–Z accessories available.",
     color: "",
   },
@@ -170,6 +170,9 @@ const ProductCard: React.FC<{
         <img
           src={item.image}
           alt={item.name}
+          width={1080}
+          height={1350}
+          loading="lazy"
           className={`w-full h-full group-hover:scale-105 transition-transform duration-500 ease-carousel origin-center ${
             item.padImage ? "p-0 sm:p-6 object-contain" : "object-cover"
           }`}
@@ -182,7 +185,7 @@ const ProductCard: React.FC<{
           <h3 className="text-white font-bold text-sm sm:text-lg md:text-xl mb-1 sm:mb-2 flex items-center justify-between">
             <span>{item.name}</span>
           </h3>
-          <p className="text-white/50 text-[10px] sm:text-xs md:text-sm leading-relaxed line-clamp-2 sm:line-clamp-none">
+          <p className="text-white/70 text-[10px] sm:text-xs md:text-sm leading-relaxed line-clamp-2 sm:line-clamp-none">
             {item.description}
           </p>
         </div>

@@ -28,73 +28,78 @@ export const Navbar: React.FC = React.memo(() => {
   return (
     <>
     {/* ─── MOBILE header: single row ☰ MENU · LOGO (center) · ENQUIRE NOW ─── */}
-    <nav className="w-full absolute top-0 left-0 z-50 pointer-events-auto">
+    <header className="w-full absolute top-0 left-0 z-50 pointer-events-auto">
+      <nav className="w-full">
+        {/* Mobile single-row header */}
+        <div className="flex md:hidden items-center justify-between px-4 py-4 relative">
 
-      {/* Mobile single-row header */}
-      <div className="flex md:hidden items-center justify-between px-4 py-4 relative">
+          {/* Left – hamburger */}
+          <button
+            onClick={() => setIsMenuOpen(true)}
+            className="flex items-center gap-1.5 text-white/80 hover:text-white text-xs font-bold uppercase tracking-widest cursor-pointer transition-colors duration-200 shrink-0 p-3 -m-3"
+            aria-label="Open navigation menu"
+          >
+            <Menu className="w-5 h-5 text-white" />
+            <span>Menu</span>
+          </button>
 
-        {/* Left – hamburger */}
-        <button
-          onClick={() => setIsMenuOpen(true)}
-          className="flex items-center gap-1.5 text-white/80 hover:text-white text-[11px] font-bold uppercase tracking-widest cursor-pointer transition-colors duration-200 shrink-0"
-          aria-label="Open navigation menu"
-        >
-          <Menu className="w-4 h-4 text-white" />
-          <span>Menu</span>
-        </button>
+          {/* Center – logo (absolutely centered so it ignores button widths) */}
+          <a
+            href="#"
+            aria-label="Custom Apparels Homepage"
+            className="absolute left-1/2 -translate-x-1/2 flex items-center group"
+          >
+            <img
+              src="/logo.webp"
+              alt="CUSTOM APPARELS"
+              width={65}
+              height={20}
+              className="h-5 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
+            />
+          </a>
 
-        {/* Center – logo (absolutely centered so it ignores button widths) */}
-        <a
-          href="#"
-          aria-label="Custom Apparels Homepage"
-          className="absolute left-1/2 -translate-x-1/2 flex items-center group"
-        >
-          <img
-            src="/logo.png"
-            alt="CUSTOM APPARELS"
-            className="h-5 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
-          />
-        </a>
-
-        {/* Right – Enquire Now */}
-        <button
-          onClick={handleWhatsAppClick}
-          className="flex items-center gap-1 px-2.5 py-1 rounded-full border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 text-white text-[10px] font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shrink-0"
-        >
-          <MessageSquare className="w-2.5 h-2.5 text-white" />
-          <span>Enquire Now</span>
-        </button>
-      </div>
-
-      {/* ─── DESKTOP header: original layout unchanged ─── */}
-      <div className="hidden md:flex items-center justify-between px-12 py-8">
-
-        {/* Logo */}
-        <a href="#" aria-label="Custom Apparels Homepage" className="flex items-center gap-2 group">
-          <img
-            src="/logo.png"
-            alt="CUSTOM APPARELS"
-            className="h-8 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
-          />
-        </a>
-
-        {/* Center Nav Links */}
-        <div className="flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-white/70">
-          <a href="#about" className="hover:text-white transition-colors duration-200">About Us</a>
-          <a href="#carousel-showcase" className="hover:text-white transition-colors duration-200">Products</a>
-          <a href="#products" className="hover:text-white transition-colors duration-200">Catalog</a>
-          <a href="#recent-work" className="hover:text-white transition-colors duration-200">Clients</a>
+          {/* Right – Enquire Now */}
+          <button
+            onClick={handleWhatsAppClick}
+            className="flex items-center gap-1 px-4 py-2 rounded-full border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shrink-0"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-white" />
+            <span>Enquire Now</span>
+          </button>
         </div>
 
-        {/* Desktop Enquire Now */}
-        <button
-          onClick={handleWhatsAppClick}
-          className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer"
-        >
-          <MessageSquare className="w-3 h-3 text-white" />
-          <span>Enquire Now</span>
-        </button>
-      </div>
+        {/* ─── DESKTOP header: original layout unchanged ─── */}
+        <div className="hidden md:flex items-center justify-between px-12 py-8">
+
+          {/* Logo */}
+          <a href="#" aria-label="Custom Apparels Homepage" className="flex items-center gap-2 group">
+            <img
+              src="/logo.webp"
+              alt="CUSTOM APPARELS"
+              width={104}
+              height={32}
+              className="h-8 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105"
+            />
+          </a>
+
+          {/* Center Nav Links */}
+          <div className="flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-white/70">
+            <a href="#about" className="hover:text-white transition-colors duration-200">About Us</a>
+            <a href="#carousel-showcase" className="hover:text-white transition-colors duration-200">Products</a>
+            <a href="#products" className="hover:text-white transition-colors duration-200">Catalog</a>
+            <a href="#recent-work" className="hover:text-white transition-colors duration-200">Clients</a>
+          </div>
+
+          {/* Desktop Enquire Now */}
+          <button
+            onClick={handleWhatsAppClick}
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:border-white/50 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
+            <MessageSquare className="w-3 h-3 text-white" />
+            <span>Enquire Now</span>
+          </button>
+        </div>
+      </nav>
 
       {/* Mobile Navigation Drawer */}
       <AnimatePresence>
@@ -154,7 +159,7 @@ export const Navbar: React.FC = React.memo(() => {
 
             {/* Bottom info row in drawer */}
             <div className="py-6 border-t border-white/5 text-left flex flex-col gap-2">
-              <span className="text-[10px] uppercase font-bold text-white/30 tracking-widest">
+              <span className="text-[10px] uppercase font-bold text-white/60 tracking-widest">
                 Get in Touch
               </span>
               <a
@@ -163,12 +168,7 @@ export const Navbar: React.FC = React.memo(() => {
               >
                 Call: {config.primaryPhone}
               </a>
-              <a
-                href={`tel:${config.secondaryPhone.replace(/\s+/g, "")}`}
-                className="text-white/60 hover:text-white text-xs transition-colors"
-              >
-                Call: {config.secondaryPhone}
-              </a>
+
               <a
                 href={`mailto:${config.email}`}
                 className="text-white/60 hover:text-white text-xs transition-colors"
@@ -179,7 +179,7 @@ export const Navbar: React.FC = React.memo(() => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
     </>
   );
 });
