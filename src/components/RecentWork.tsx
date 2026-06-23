@@ -17,7 +17,7 @@ const items: GalleryItem[] = [
     id: "work-1",
     title: "MERCH CRAFTED FOR CLIENTS",
     client: "",
-    image: "https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=800&auto=format&fit=crop",
+    image: "/recent/IMG_7285_thumb.webp",
     video: "/IMG_7285.MP4",
     gridClass: "md:col-span-8 md:row-span-1 h-[350px] md:h-[450px]",
   },
@@ -25,7 +25,7 @@ const items: GalleryItem[] = [
     id: "work-2",
     title: "EVENT MERCHANDISE FOR PIER POP",
     client: "THE BALLARD PIER",
-    image: "https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800&auto=format&fit=crop",
+    image: "/recent/custom_thumb.webp",
     video: "/custom.MP4",
     gridClass: "md:col-span-4 md:row-span-2 h-[500px] md:h-[700px]",
   },
@@ -87,9 +87,9 @@ const RecentWorkCard: React.FC<{
       className={`group relative rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 shadow-2xl flex flex-col ${item.gridClass}`}
     >
       {/* Video or Image Layer with Parallax */}
-      {item.video ? (
+      {item.video && isInView ? (
         <video
-          src={isInView ? item.video : undefined}
+          src={item.video}
           poster={item.image}
           autoPlay
           loop
