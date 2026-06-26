@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
@@ -111,10 +111,10 @@ export const Testimonials: React.FC = React.memo(() => {
 
   const total = TESTIMONIALS.length;
 
-  const goTo = (idx: number, dir: 1 | -1) => {
+  const goTo = useCallback((idx: number, dir: 1 | -1) => {
     setDirection(dir);
     setCurrent((idx + total) % total);
-  };
+  }, [total]);
 
   const handlePrev = () => goTo(current - 1, -1);
   const handleNext = () => goTo(current + 1, 1);
@@ -143,7 +143,7 @@ export const Testimonials: React.FC = React.memo(() => {
       goTo(current + 1, 1);
     }, 6000);
     return () => clearInterval(timer);
-  }, [current]);
+  }, [current, goTo]);
 
   const testimonial = TESTIMONIALS[current];
 

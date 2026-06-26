@@ -104,28 +104,26 @@ export const HowItWorks: React.FC = React.memo(() => {
 
                   {/* Right Column (Desktop) */}
                   <div className="w-full md:w-[45%] text-left flex flex-col gap-2">
-                    {(!isEven || true) && (
-                      <motion.div
-                        initial={{ x: 40, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ type: "spring", stiffness: 80, damping: 15 }}
-                        className={`flex flex-col items-start gap-2 ${isEven ? "md:hidden" : ""}`}
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center border border-white/5 mb-2">
-                          {step.icon}
-                        </div>
-                        <span className="text-[10px] tracking-[0.2em] font-extrabold text-zinc-400 uppercase">
-                          Step {step.step}
-                        </span>
-                        <h3 className="text-white font-bold text-xl uppercase tracking-wider">
-                          {step.title}
-                        </h3>
-                        <p className="text-white/70 text-xs md:text-sm leading-relaxed max-w-md">
-                          {step.desc}
-                        </p>
-                      </motion.div>
-                    )}
+                    <motion.div
+                      initial={{ x: 40, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ type: "spring", stiffness: 80, damping: 15 }}
+                      className={`flex flex-col items-start gap-2 ${isEven ? "md:hidden" : ""}`}
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center border border-white/5 mb-2">
+                        {step.icon}
+                      </div>
+                      <span className="text-[10px] tracking-[0.2em] font-extrabold text-zinc-400 uppercase">
+                        Step {step.step}
+                      </span>
+                      <h3 className="text-white font-bold text-xl uppercase tracking-wider">
+                        {step.title}
+                      </h3>
+                      <p className="text-white/70 text-xs md:text-sm leading-relaxed max-w-md">
+                        {step.desc}
+                      </p>
+                    </motion.div>
                   </div>
 
                 </div>

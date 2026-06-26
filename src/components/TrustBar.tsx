@@ -78,15 +78,11 @@ const MarqueeRow: React.FC<MarqueeRowProps> = ({
         const isClicked  = clickedIndex === idx;
         const isAnyClicked = clickedIndex !== null;
 
-        let styleClasses = "";
-        if (isClicked) {
-          styleClasses =
-            "bg-white border border-zinc-100 shadow-[0_20px_50px_rgba(0,0,0,0.12)] -translate-y-3 scale-115 z-30 opacity-100 px-6 py-4 rounded-2xl";
-        } else if (isAnyClicked) {
-          styleClasses = "opacity-35 scale-95 z-10 blur-[0.5px]";
-        } else {
-          styleClasses = "opacity-80 hover:opacity-100 hover:scale-105 hover:-translate-y-1 z-10";
-        }
+        const styleClasses = isClicked
+          ? "bg-white border border-zinc-100 shadow-[0_20px_50px_rgba(0,0,0,0.12)] -translate-y-3 scale-115 z-30 opacity-100 px-6 py-4 rounded-2xl"
+          : isAnyClicked
+          ? "opacity-35 scale-95 z-10 blur-[0.5px]"
+          : "opacity-80 hover:opacity-100 hover:scale-105 hover:-translate-y-1 z-10";
 
         return (
           <div

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { MessageSquare } from "lucide-react";
 
 interface ShowcaseItem {
@@ -148,7 +148,7 @@ const cardVariants = {
 
 const ProductCard: React.FC<{
   item: ShowcaseItem;
-  variants: any;
+  variants: Variants;
   onEnquire: (productName: string) => void;
 }> = ({ item, variants, onEnquire }) => {
   return (

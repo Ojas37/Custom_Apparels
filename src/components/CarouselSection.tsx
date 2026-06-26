@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getWhatsAppLink } from "../config";
 
@@ -161,7 +161,7 @@ export const CarouselSection: React.FC = React.memo(() => {
   // Preload Images disabled to respect lazy loading of below-the-fold assets
 
   // Navigation Logic
-  const navigate = (direction: "next" | "prev") => {
+  const navigate = useCallback((direction: "next" | "prev") => {
     if (isAnimating) return;
     setIsAnimating(true);
 
@@ -174,7 +174,7 @@ export const CarouselSection: React.FC = React.memo(() => {
     setTimeout(() => {
       setIsAnimating(false);
     }, 650);
-  };
+  }, [isAnimating, N]);
 
   // Autoplay Logic (3.5 second intervals)
   useEffect(() => {
@@ -185,7 +185,7 @@ export const CarouselSection: React.FC = React.memo(() => {
     }, 3500);
 
     return () => clearInterval(timer);
-  }, [activeIndex, isAnimating]);
+  }, [isAnimating, navigate]);
 
   const handleWhatsAppEnquiry = () => {
     const currentProduct = IMAGES[activeIndex];
