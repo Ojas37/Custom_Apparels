@@ -34,6 +34,9 @@ dist-ssr
 
 .vercel
 .env*.local
+
+# Lighthouse reports
+lighthouse-report.json
 .vercel_backup/
 
 .vercel

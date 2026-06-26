@@ -61,9 +61,9 @@ export const Navbar: React.FC = React.memo(() => {
           {/* Right – Enquire Now */}
           <button
             onClick={handleWhatsAppClick}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 text-white text-[10px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shrink-0"
+            className="flex items-center gap-1 px-2 py-1 rounded-full border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 text-white text-[9px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 cursor-pointer shrink-0"
           >
-            <MessageSquare className="w-3.5 h-3.5 text-white" />
+            <MessageSquare className="w-3 h-3 text-white" />
             <span>ENQUIRE NOW</span>
           </button>
         </div>
@@ -88,6 +88,7 @@ export const Navbar: React.FC = React.memo(() => {
             <a href="#carousel-showcase" className="hover:text-white transition-colors duration-200">Products</a>
             <a href="#products" className="hover:text-white transition-colors duration-200">Catalog</a>
             <a href="#recent-work" className="hover:text-white transition-colors duration-200">Clients</a>
+            <a href="#footer" className="hover:text-white transition-colors duration-200">Contact Us</a>
           </div>
 
           {/* Desktop Enquire Now */}

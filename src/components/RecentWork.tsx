@@ -18,7 +18,7 @@ const items: GalleryItem[] = [
     title: "MERCH CRAFTED FOR CLIENTS",
     client: "",
     image: "/recent/IMG_7285_thumb.webp",
-    video: "/IMG_7285.MP4",
+    video: "/video_2.mp4",
     gridClass: "md:col-span-8 md:row-span-1 h-[350px] md:h-[450px]",
   },
   {
@@ -26,7 +26,7 @@ const items: GalleryItem[] = [
     title: "EVENT MERCHANDISE FOR PIER POP",
     client: "THE BALLARD PIER",
     image: "/recent/custom_thumb.webp",
-    video: "/custom.MP4",
+    video: "/video_1.mp4",
     gridClass: "md:col-span-4 md:row-span-2 h-[500px] md:h-[700px]",
   },
   {
